@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=390">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#14110d; --gold:#e5a91e; --green:#1d7a3c; --red:#c7372a; --blue:#2a4fa0; --ground:#fbfaf7; --muted:#6d655a; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { width:390px; height:844px; overflow:hidden; background:var(--ground); color:var(--ink); font-family:'Atkinson Hyperlegible',system-ui,sans-serif; }
+  header { background:var(--ink); color:#fff; padding:14px 16px 0; }
+  .bar { display:flex; align-items:center; justify-content:space-between; }
+  .brand { font-weight:700; font-size:15px; letter-spacing:.02em; }
+  .city { font-size:15px; border:1px solid #4a4238; border-radius:6px; padding:6px 10px; }
+  .edge { display:grid; grid-template-columns:repeat(26,1fr); height:10px; margin:14px -16px 0; }
+  .edge i:nth-child(4n+1){background:var(--gold)} .edge i:nth-child(4n+2){background:var(--green)}
+  .edge i:nth-child(4n+3){background:var(--red)} .edge i:nth-child(4n){background:var(--gold)}
+  main { padding:18px 16px; }
+  .when { font-size:14px; color:var(--muted); }
+  h1 { font-size:34px; line-height:1.08; margin:6px 0 10px; letter-spacing:-.01em; }
+  .note { font-size:13px; color:var(--muted); border-left:3px solid var(--gold); padding-left:8px; }
+  .now { display:flex; gap:18px; margin:16px 0 18px; font-size:15px; }
+  .now b { display:block; font-size:24px; }
+  .strip-label { display:flex; justify-content:space-between; font-size:13px; margin:14px 0 5px; }
+  .strip-label span:first-child { font-weight:700; font-size:14px; }
+  .strip { display:grid; grid-template-columns:repeat(16,1fr); height:30px; border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); }
+  .strip i { border-right:1px solid rgba(0,0,0,.18); background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.18) 0 1px,transparent 1px 4px); }
+  .strip i.f { background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.55) 0 3px,transparent 3px 7px); }
+  .r0{background-color:#ece7da}.r1{background-color:#9fb6e0}.r2{background-color:var(--blue)}.r3{background-color:#16285a}
+  .h1{background-color:#f3d27a}.h2{background-color:var(--gold)}.h3{background-color:#d9751f}.h4{background-color:var(--red)}
+  .a1{background-color:#7fb48e}.a2{background-color:var(--green)}.a3{background-color:#c9a032}.a4{background-color:#9a5a24}
+  .axis { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); margin-top:3px; }
+  nav.tabs { display:flex; gap:6px; margin:22px 0 14px; overflow:hidden; }
+  nav.tabs a { font-size:14px; padding:8px 12px; border-radius:999px; border:1px solid #d6cfc2; white-space:nowrap; color:var(--ink); text-decoration:none; }
+  nav.tabs a.on { background:var(--ink); color:#fff; border-color:var(--ink); }
+  .map { display:flex; justify-content:space-between; align-items:center; border:1px solid #d6cfc2; border-radius:8px; padding:12px; font-size:14px; }
+  .map b { font-size:15px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="bar"><span class="brand">Ghana Cities</span><span class="city">Accra ▾</span></div>
+  <div class="edge"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</header>
+<main>
+  <p class="when">Accra · Saturday 10 Oct, 18:00 · sample data</p>
+  <h1>Heavy rain likely tonight</h1>
+  <p class="note">About 22 mm expected after 21:00. Not an official warning — check GMet and NADMO.</p>
+  <div class="now"><div><b>28 °C</b>feels like 33 °C</div><div><b>Moderate</b>air · PM2.5 18</div></div>
+
+  <div class="strip-label"><span>Rain</span><span>last 14 days + next 2</span></div>
+  <div class="strip"><i class="r0"></i><i class="r1"></i><i class="r0"></i><i class="r0"></i><i class="r2"></i><i class="r3"></i><i class="r1"></i><i class="r0"></i><i class="r0"></i><i class="r1"></i><i class="r2"></i><i class="r0"></i><i class="r1"></i><i class="r0"></i><i class="r3 f"></i><i class="r1 f"></i></div>
+  <div class="axis"><span>27 Sep</span><span>today</span></div>
+
+  <div class="strip-label"><span>Heat</span><span>feels-like, daily max</span></div>
+  <div class="strip"><i class="h2"></i><i class="h2"></i><i class="h3"></i><i class="h3"></i><i class="h1"></i><i class="h1"></i><i class="h2"></i><i class="h3"></i><i class="h4"></i><i class="h3"></i><i class="h2"></i><i class="h2"></i><i class="h3"></i><i class="h2"></i><i class="h1 f"></i><i class="h2 f"></i></div>
+
+  <div class="strip-label"><span>Air</span><span>fine dust, daily mean</span></div>
+  <div class="strip"><i class="a2"></i><i class="a1"></i><i class="a1"></i><i class="a2"></i><i class="a1"></i><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="a3"></i><i class="a2"></i><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="a2"></i><i class="a2 f"></i><i class="a2 f"></i></div>
+
+  <nav class="tabs"><a class="on" href="#">Flood &amp; Rain</a><a href="#">Heat &amp; Air</a><a href="#">Services</a><a href="#">Environment</a></nav>
+  <div class="map"><span><b>Map: low-lying areas</b><br>Loads on tap · about 2 MB</span><span>Show map →</span></div>
+</main>
+</body>
+</html>

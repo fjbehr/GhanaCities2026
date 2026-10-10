@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=390">
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --blue:#15609c; --yellow:#f6cf1a; --red:#d63a24; --ink:#111; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { width:390px; height:844px; overflow:hidden; background:#fff; color:var(--ink); font-family:'Atkinson Hyperlegible',system-ui,sans-serif; }
+  header { background:var(--blue); color:#fff; padding:14px 16px 16px; border-bottom:6px solid var(--ink); }
+  .bar { display:flex; justify-content:space-between; align-items:center; font-size:15px; }
+  .bar span:last-child { background:#fff; color:var(--ink); border-radius:4px; padding:5px 10px; font-weight:700; }
+  .title { font-family:'Bungee',sans-serif; font-size:40px; line-height:1; margin-top:14px; text-shadow:3px 3px 0 var(--ink); }
+  .sub { font-size:14px; margin-top:6px; }
+  .board { margin:16px; background:var(--yellow); border:4px solid var(--ink); border-radius:6px; padding:16px; position:relative; }
+  .board h1 { font-family:'Bungee',sans-serif; font-size:28px; line-height:1.05; }
+  .board p { font-size:15px; margin-top:8px; max-width:210px; }
+  .cloud { position:absolute; right:14px; top:18px; width:96px; height:52px; background:#4a5a6a; border-radius:30px; border:3px solid var(--ink); }
+  .drops { position:absolute; right:22px; top:80px; display:flex; gap:12px; }
+  .drops i { width:8px; height:22px; background:var(--blue); border-radius:4px; border:2px solid var(--ink); transform:rotate(15deg); }
+  .warn { font-size:12px; margin:0 16px; color:#444; }
+  .rows { margin:16px; border:3px solid var(--ink); border-radius:6px; overflow:hidden; }
+  .row { display:flex; justify-content:space-between; align-items:center; padding:12px 14px; border-bottom:3px solid var(--ink); font-size:15px; }
+  .row:last-child { border-bottom:0; }
+  .row b { font-family:'Bungee',sans-serif; font-size:20px; }
+  .row.hot { background:#fde3dc; }
+  .tabs { display:flex; gap:6px; margin:0 16px; }
+  .tabs a { flex:1; text-align:center; font-size:13px; font-weight:700; padding:10px 4px; border:3px solid var(--ink); border-radius:6px; color:var(--ink); text-decoration:none; }
+  .tabs a.on { background:var(--red); color:#fff; }
+  .map { margin:14px 16px; padding:12px; border:3px dashed var(--ink); border-radius:6px; font-size:14px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="bar"><span>Ghana Cities</span><span>Accra ▾</span></div>
+  <div class="title">ACCRA TODAY</div>
+  <div class="sub">Saturday 10 Oct, 18:00 · sample data</div>
+</header>
+<div class="board">
+  <h1>HEAVY RAIN LIKELY TONIGHT</h1>
+  <p>About 22 mm after 21:00. Keep drains clear, avoid low roads.</p>
+  <div class="cloud"></div>
+  <div class="drops"><i></i><i></i><i></i><i></i></div>
+</div>
+<p class="warn">Not an official warning — check GMet and NADMO.</p>
+<div class="rows">
+  <div class="row hot"><span>Feels like</span><b>33 °C</b></div>
+  <div class="row"><span>Air (PM2.5)</span><b>MODERATE</b></div>
+  <div class="row"><span>Rain, next 24 h</span><b>22 MM</b></div>
+</div>
+<nav class="tabs"><a class="on" href="#">Rain</a><a href="#">Heat &amp; Air</a><a href="#">Services</a><a href="#">Land</a></nav>
+<div class="map"><b>Map: low-lying areas</b> — loads on tap, about 2 MB</div>
+</body>
+</html>

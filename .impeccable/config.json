@@ -1,0 +1,44 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/lead-transit.html"
+        ],
+        "createdAt": "2026-10-10T19:17:16.385Z",
+        "reason": "Claude: unchosen decision-round sketch (spent hand, user picked the canon); never shipped"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/lead-transit-desktop.html"
+        ],
+        "createdAt": "2026-10-10T19:17:16.565Z",
+        "reason": "Claude: unchosen decision-round sketch (spent hand, user picked the canon); never shipped"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-cast.html"
+        ],
+        "createdAt": "2026-10-10T19:17:16.740Z",
+        "reason": "Claude: unchosen decision-round sketch (spent hand, user picked the canon); never shipped"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/challenger-cast-desktop.html"
+        ],
+        "createdAt": "2026-10-10T19:17:16.909Z",
+        "reason": "Claude: unchosen decision-round sketch (spent hand, user picked the canon); never shipped"
+      }
+    ]
+  }
+}

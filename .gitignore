@@ -1,0 +1,38 @@
+node_modules/
+.svelte-kit/
+build/
+.output
+
+# env
+.env
+.env.*
+!.env.example
+!.env.test
+
+# large / generated data
+data/raw/
+data/derived/
+*.pmtiles.part
+
+# portable tools (downloaded, not versioned)
+tools/
+geoserver/data_dir/
+
+# vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# OS
+.DS_Store
+Thumbs.db
+
+.claude/settings.local.json
+*.log
+
+# generated Masterportal (npm run portal)
+static/portal/
+
+# impeccable: platform binary (fetched by its launcher), runtime cache and session files
+.claude/skills/impeccable/scripts/bin/
+.impeccable/hook.cache.json
+.impeccable/questions/

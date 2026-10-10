@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=390">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { width:390px; height:844px; overflow:hidden; background:#1b1b1b; color:#f4f4f0; font-family:'Atkinson Hyperlegible',system-ui,sans-serif; }
+  header { display:flex; justify-content:space-between; align-items:center; padding:14px 16px; border-bottom:4px solid #3a3a3a; font-size:15px; }
+  header span:last-child { border:1px solid #555; border-radius:4px; padding:5px 10px; }
+  .head { padding:18px 16px 8px; }
+  .head small { color:#a9a9a2; font-size:13px; }
+  .head h1 { font-family:'Oswald',sans-serif; font-weight:600; font-size:32px; text-transform:uppercase; line-height:1.05; margin-top:4px; }
+  .cols { display:grid; grid-template-columns:1.4fr 1fr 1fr; padding:10px 16px 4px; font-size:11px; color:#a9a9a2; letter-spacing:.08em; text-transform:uppercase; }
+  .row { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:4px; margin:0 12px 6px; background:#111; padding:8px 4px; border-radius:3px; align-items:center; }
+  .cells { display:flex; gap:2px; }
+  .cells i { font-style:normal; font-family:'Oswald',sans-serif; font-weight:500; font-size:19px; width:19px; height:30px; display:grid; place-items:center; background:#232323; border-radius:2px; position:relative; }
+  .cells i::after { content:''; position:absolute; left:0; right:0; top:50%; height:1px; background:#000; }
+  .lamp { width:10px; height:10px; border-radius:50%; background:#f2a900; justify-self:end; margin-right:6px; }
+  .row.alert .cells i { color:#f2a900; }
+  .note { margin:10px 16px; font-size:12px; color:#a9a9a2; }
+  .tabs { display:flex; gap:6px; margin:16px; }
+  .tabs a { flex:1; font-size:13px; text-align:center; padding:9px 2px; border:1px solid #555; border-radius:4px; color:#f4f4f0; text-decoration:none; }
+  .tabs a.on { background:#f2a900; color:#111; border-color:#f2a900; }
+  .map { margin:0 16px; padding:12px; border:1px solid #555; border-radius:4px; font-size:14px; }
+</style>
+</head>
+<body>
+<header><span>Ghana Cities</span><span>Accra ▾</span></header>
+<div class="head"><small>Accra · Sat 10 Oct, 18:00 · sample data</small><h1>Heavy rain likely tonight</h1></div>
+<div class="cols"><span>Condition</span><span>Value</span><span>Status</span></div>
+<div class="row alert"><div class="cells"><i>R</i><i>A</i><i>I</i><i>N</i></div><div class="cells"><i>2</i><i>2</i></div><div class="lamp"></div></div>
+<div class="row"><div class="cells"><i>H</i><i>E</i><i>A</i><i>T</i></div><div class="cells"><i>3</i><i>3</i></div><div class="cells"><i>O</i><i>K</i></div></div>
+<div class="row"><div class="cells"><i>A</i><i>I</i><i>R</i></div><div class="cells"><i>1</i><i>8</i></div><div class="cells"><i>O</i><i>K</i></div></div>
+<div class="row"><div class="cells"><i>D</i><i>U</i><i>S</i><i>T</i></div><div class="cells"><i>4</i><i>0</i></div><div class="cells"><i>O</i><i>K</i></div></div>
+<div class="row"><div class="cells"><i>R</i><i>I</i><i>V</i><i>E</i><i>R</i></div><div class="cells"><i>1</i><i>2</i></div><div class="cells"><i>O</i><i>K</i></div></div>
+<p class="note">Rain in mm next 24 h, heat as feels-like °C, air as PM2.5 µg/m³. Not an official warning — check GMet and NADMO.</p>
+<nav class="tabs"><a class="on" href="#">Rain</a><a href="#">Heat &amp; Air</a><a href="#">Services</a><a href="#">Land</a></nav>
+<div class="map"><b>Map: low-lying areas</b> — loads on tap, about 2 MB</div>
+</body>
+</html>

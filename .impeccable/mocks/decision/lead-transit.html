@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=390">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root { --enamel:#0f1d3a; --porc:#f7f7f2; --scarlet:#d7263d; --cobalt:#3d7ae0; --amber:#f2a516; --green:#1e8a4c; --ink:#0f1d3a; --muted:#56607a; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { width:390px; height:844px; overflow:hidden; background:var(--porc); color:var(--ink); font-family:'Fira Sans',system-ui,sans-serif; }
+  .board { background:var(--enamel); color:var(--porc); padding:14px 16px 16px; border-bottom:6px solid var(--scarlet); }
+  .bar { display:flex; justify-content:space-between; align-items:center; font-size:15px; }
+  .bar b { font-weight:800; letter-spacing:.01em; }
+  .bar span:last-child { border:2px solid var(--porc); border-radius:999px; padding:4px 12px; font-weight:600; }
+  .board h2 { font-size:15px; font-weight:600; margin:16px 0 8px; opacity:.85; }
+  .line { display:grid; grid-template-columns:54px 1fr auto; align-items:center; gap:10px; padding:7px 0; border-top:1px solid rgba(247,247,242,.15); font-size:15px; }
+  .stroke { height:8px; border-radius:4px; position:relative; }
+  .stroke::after { content:''; position:absolute; right:-2px; top:-4px; width:12px; height:12px; border-radius:50%; background:var(--porc); border:3px solid currentColor; }
+  .st { font-weight:600; font-size:14px; padding:3px 9px; border-radius:4px; }
+  .st.good { border:2px solid var(--porc); }
+  .st.act { background:var(--porc); color:var(--enamel); }
+  .st.watch { border:2px dashed var(--amber); color:var(--amber); }
+  main { padding:16px; }
+  .when { font-size:14px; color:var(--muted); }
+  h1 { font-size:30px; font-weight:800; line-height:1.08; margin:4px 0 8px; }
+  .note { font-size:14px; color:var(--muted); }
+  .seg { display:grid; grid-template-columns:repeat(3,1fr); border:2px solid var(--ink); border-radius:999px; overflow:hidden; margin:14px 0 10px; font-size:14px; font-weight:600; text-align:center; }
+  .seg span { padding:8px 0; } .seg span.on { background:var(--ink); color:var(--porc); }
+  svg { display:block; width:100%; height:112px; }
+  .tabs { display:flex; gap:6px; margin:10px 0 12px; }
+  .tabs a { font-size:14px; font-weight:600; padding:8px 11px; border-radius:999px; border:2px solid #cfd3dc; color:var(--ink); text-decoration:none; white-space:nowrap; }
+  .tabs a.on { border-color:var(--cobalt); background:var(--cobalt); color:#fff; }
+  .map { display:flex; justify-content:space-between; border:2px solid #cfd3dc; border-radius:10px; padding:11px 12px; font-size:14px; }
+</style>
+</head>
+<body>
+<section class="board">
+  <div class="bar"><b>Ghana Cities</b><span>Accra ▾</span></div>
+  <h2>Accra lines · Sat 10 Oct, 18:00</h2>
+  <div class="line"><div class="stroke" style="background:var(--cobalt);color:var(--cobalt)"></div><span>Rain</span><span class="st act">Act tonight</span></div>
+  <div class="line"><div class="stroke" style="background:var(--green);color:var(--green)"></div><span>River &amp; drains</span><span class="st watch">Watch</span></div>
+  <div class="line"><div class="stroke" style="background:var(--scarlet);color:var(--scarlet)"></div><span>Heat</span><span class="st good">Good</span></div>
+  <div class="line"><div class="stroke" style="background:var(--amber);color:var(--amber)"></div><span>Air &amp; dust</span><span class="st good">Good</span></div>
+</section>
+<main>
+  <p class="when">Sample data · not an official warning, check GMet and NADMO</p>
+  <h1>Heavy rain likely tonight</h1>
+  <p class="note">About 22 mm after 21:00. Low roads near the Odaw may flood.</p>
+  <div class="seg"><span>Now</span><span class="on">Tonight</span><span>Tomorrow</span></div>
+  <svg viewBox="0 0 358 112" aria-label="Rain line through tonight">
+    <path d="M8 34 H350" stroke="#3d7ae0" stroke-width="8" stroke-linecap="round"/>
+    <path d="M190 34 L214 58 H350" stroke="#1e8a4c" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <g fill="#f7f7f2" stroke="#0f1d3a" stroke-width="3"><circle cx="20" cy="34" r="6"/><circle cx="104" cy="34" r="6"/><circle cx="190" cy="34" r="10"/><circle cx="276" cy="34" r="6"/><circle cx="342" cy="34" r="6"/></g>
+    <g font-family="Fira Sans" font-size="13" fill="#0f1d3a" text-anchor="middle"><text x="20" y="14">18:00</text><text x="104" y="14">21:00</text><text x="190" y="14" font-weight="800">00:00</text><text x="276" y="14">03:00</text><text x="336" y="14">06:00</text></g>
+    <g font-family="Fira Sans" font-size="13" fill="#56607a" text-anchor="middle"><text x="20" y="84">0 mm</text><text x="104" y="84">4 mm</text><text x="190" y="84" fill="#0f1d3a" font-weight="600">11 mm</text><text x="276" y="84">5 mm</text><text x="336" y="84">2 mm</text></g>
+    <text x="282" y="104" font-family="Fira Sans" font-size="12" fill="#1e8a4c" text-anchor="middle">river rising</text>
+  </svg>
+  <nav class="tabs"><a class="on" href="#">Flood &amp; Rain</a><a href="#">Heat &amp; Air</a><a href="#">Services</a></nav>
+  <div class="map"><span><b>Map: low-lying areas</b> · about 2 MB</span><span>Show →</span></div>
+</main>
+</body>
+</html>

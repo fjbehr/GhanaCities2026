@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=390">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { width:390px; height:844px; overflow:hidden; background:#fffaf0; color:#2b2b2b; font-family:'Atkinson Hyperlegible',system-ui,sans-serif; }
+  .bar { display:flex; justify-content:space-between; padding:14px 16px; font-size:15px; font-weight:700; }
+  .bar span:last-child { background:#fff; border:2px solid #2b2b2b; border-radius:999px; padding:3px 12px; }
+  .lead { margin:0 16px; background:#cfe8ff; border:3px solid #fff; outline:2px solid #2b2b2b; border-radius:18px; padding:14px; position:relative; }
+  .ribbon { position:absolute; top:-10px; left:14px; background:#b8301a; color:#fff; font-weight:700; font-size:13px; padding:3px 10px; border-radius:6px; }
+  .who { display:flex; gap:14px; align-items:center; margin-top:6px; }
+  .face { width:96px; height:96px; border-radius:50% 50% 46% 46%; background:#4b78c4; border:4px solid #fff; outline:2px solid #2b2b2b; position:relative; flex:none; }
+  .face::before,.face::after { content:''; position:absolute; top:38px; width:10px; height:14px; border-radius:50%; background:#fff; }
+  .face::before { left:28px; } .face::after { right:28px; }
+  .name { font-family:'Baloo 2',sans-serif; font-weight:800; font-size:30px; line-height:1; }
+  .lead p { font-size:15px; margin-top:10px; }
+  .lead small { display:block; font-size:12px; margin-top:6px; color:#3d4a5c; }
+  h2 { font-family:'Baloo 2',sans-serif; font-weight:600; font-size:18px; margin:18px 16px 8px; }
+  .roster { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; padding:0 16px; }
+  .c { border-radius:14px; border:3px solid #fff; outline:2px solid #2b2b2b; padding:8px; text-align:center; font-size:13px; }
+  .c i { display:block; width:54px; height:54px; margin:2px auto 6px; border-radius:50%; border:3px solid #fff; outline:2px solid #2b2b2b; }
+  .c b { font-family:'Baloo 2',sans-serif; display:block; font-size:15px; }
+  .tabs { display:flex; gap:6px; margin:16px; }
+  .tabs a { flex:1; text-align:center; font-size:13px; font-weight:700; padding:9px 2px; border-radius:999px; border:2px solid #2b2b2b; color:#2b2b2b; text-decoration:none; }
+  .tabs a.on { background:#2b2b2b; color:#fff; }
+  .map { margin:0 16px; font-size:14px; padding:11px; border-radius:12px; border:2px dashed #2b2b2b; }
+</style>
+</head>
+<body>
+<div class="bar"><span>Ghana Cities</span><span>Accra ▾</span></div>
+<div class="lead">
+  <span class="ribbon">Tonight in Accra</span>
+  <div class="who"><div class="face"></div><div><div class="name">Big Rain</div><div>about 22 mm after 21:00</div></div></div>
+  <p>Keep drains clear and avoid low roads near the Odaw until morning.</p>
+  <small>Sample data · not an official warning, check GMet and NADMO</small>
+</div>
+<h2>Also around today</h2>
+<div class="roster">
+  <div class="c" style="background:#ffd6e0"><i style="background:#e0566f"></i><b>Hot Afternoon</b>feels 33 °C</div>
+  <div class="c" style="background:#fff1b8"><i style="background:#d8a93a"></i><b>Harmattan Dust</b>resting</div>
+  <div class="c" style="background:#d5f5d0"><i style="background:#3f9a5a"></i><b>Clear Air</b>PM2.5 18</div>
+</div>
+<nav class="tabs"><a class="on" href="#">Rain</a><a href="#">Heat &amp; Air</a><a href="#">Services</a></nav>
+<div class="map"><b>Map: low-lying areas</b> — loads on tap, about 2 MB</div>
+</body>
+</html>

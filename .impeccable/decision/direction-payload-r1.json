@@ -1,0 +1,106 @@
+{
+  "title": "Choose the visual world — bolder hand",
+  "question": "Bolder re-roll: foreign forms at full commitment. The deal put City Lines in front. Keep it, take an alternate, or re-roll again. Sketches now show the Accra city page on a desktop monitor (phone versions: same file names without -desktop in .impeccable/mocks/decision/). Values are sample data.",
+  "options": [
+    {
+      "id": "lead-transit",
+      "label": "City Lines",
+      "kicker": "THE ROLL",
+      "lineage": "Metro network diagrams fired in midnight-blue enamel",
+      "thesis": "Rain, heat, air and river run as coloured lines through the city; status reads like a service board: good, watch, act.",
+      "palette": ["#0f1d3a", "#f7f7f2", "#d7263d", "#1f5fbf", "#f2a516", "#1e8a4c"],
+      "materials": ["enamel signage panel", "porcelain station ticks"],
+      "viewport": "Enamel status board 'Accra lines' with one coloured line per condition and its plain status; tonight's hours as stations along the rain line; map on tap.",
+      "risk": "Dark enamel glares outdoors, so it stays on the status board and reading happens on porcelain; lines must stay schematic and never pose as geography.",
+      "raised": [
+        { "from": "challenger-rack", "raise": "Short type scale: two sizes, rank carried by weight, case and reversal." },
+        { "from": "challenger-crouwel", "raise": "Whole-cell grid: every block reflows in whole cells, never squeezed." },
+        { "from": "challenger-specimen", "raise": "One time scrubber (now · tonight · tomorrow) restates every value on the page at once." }
+      ],
+      "html": ".impeccable/mocks/decision/lead-transit-desktop.html",
+      "hero": "https://impeccable.style/worlds/cards/wayfinding-cartography-signage-midnight-transit-diagram-hero.webp"
+    },
+    {
+      "id": "challenger-tiles",
+      "label": "Live Tiles",
+      "verdict": "competitive",
+      "lineage": "Metro-style flat tile interfaces",
+      "thesis": "Each condition a flat colour tile that flips when fresh data lands; the city name set huge and cropped.",
+      "palette": ["#000000", "#ffffff", "#00a6d6", "#d80073", "#8cbf26"],
+      "materials": ["flat colour fields", "giant lowercase type"],
+      "viewport": "Giant lowercase 'accra' cropped off the right edge over square tiles; the rain tile flooded with the accent.",
+      "case": "Holds clarity — status at a glance; loses identification to City Lines.",
+      "risk": "Colour fields shout on an ordinary day, and the black ground glares in sunlight.",
+      "html": ".impeccable/mocks/decision/challenger-tiles-desktop.html",
+      "hero": "https://impeccable.style/worlds/cards/digital-design-canon-metro-typographic-tiles-hero.webp"
+    },
+    {
+      "id": "challenger-cast",
+      "label": "Weather Cast",
+      "verdict": "competitive",
+      "lineage": "Character goods catalogs",
+      "thesis": "Every condition is a named character with a one-line note on what it means for you today.",
+      "palette": ["#fff1b8", "#cfe8ff", "#ffd6e0", "#d5f5d0", "#2b2b2b", "#e8452c"],
+      "materials": ["flat fills with white keylines", "name plates"],
+      "viewport": "A roster of characters — Big Rain, Harmattan Dust, Hot Afternoon — today's active one ribboned and enlarged with its note.",
+      "case": "Holds identification for residents through plain-spoken characters; loses clarity for numbers and districts.",
+      "risk": "Can read childish to decision-makers and trivialise flood risk; needs real illustrated characters.",
+      "html": ".impeccable/mocks/decision/challenger-cast-desktop.html",
+      "hero": "https://impeccable.style/worlds/cards/pop-culture-shelf-character-goods-catalog-hero.webp"
+    },
+    {
+      "id": "challenger-rack",
+      "label": "Timetable Rack",
+      "verdict": "declined",
+      "lineage": "Pocket airline timetables on a light table",
+      "thesis": "Raked glass slides, one type size for everything.",
+      "palette": ["#d9a521", "#2b2f36", "#f3ecd8", "#d0451b", "#1f6b47"],
+      "materials": ["tinted glass slides", "lit goldenrod bed"],
+      "viewport": "Topics as raked slides travelling sideways.",
+      "case": "Fuses poorly: raked containers cost readability on a phone, and nobody here knows the artifact.",
+      "risk": "Sideways travel hides content.",
+      "kept": "A short type scale; rank by weight and reversal.",
+      "hero": "https://impeccable.style/worlds/cards/rw-timetable-slide-rack-hero.webp"
+    },
+    {
+      "id": "challenger-crouwel",
+      "label": "Grid Specimen",
+      "verdict": "declined",
+      "lineage": "Wim Crouwel gridded type specimens",
+      "thesis": "Big values built cell by cell on a visible grid.",
+      "palette": ["#ffffff", "#111111", "#9cc3e6", "#e63312"],
+      "materials": ["construction grid", "monumental letterforms"],
+      "viewport": "A grid-built '22 mm' filling the top half.",
+      "case": "Fuses poorly: a Dutch design-world reference residents do not share; clarity no better than City Lines.",
+      "risk": "Formal and cold.",
+      "kept": "Everything reflows in whole cells.",
+      "hero": "https://impeccable.style/worlds/cards/crouwel-grid-specimen-hero.webp"
+    },
+    {
+      "id": "challenger-specimen",
+      "label": "Axis Specimen",
+      "verdict": "declined",
+      "lineage": "Variable-font specimen pages",
+      "thesis": "One slider morphs the whole page live.",
+      "palette": ["#fafaf7", "#111111", "#ff4f00"],
+      "materials": ["flat paper", "monospace readouts"],
+      "viewport": "A giant value with a slider beneath.",
+      "case": "Fuses poorly: a type-nerd ritual with no link to rain or heat.",
+      "risk": "Gimmick without data meaning.",
+      "kept": "One direct control restates the whole page.",
+      "hero": "https://impeccable.style/worlds/cards/variable-font-specimen-hero.webp"
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A clean weather and air-quality app, executed impeccably.",
+    "palette": ["#ffffff", "#0f172a", "#2563eb", "#f1f5f9"],
+    "materials": ["white cards", "icon-and-number tiles"],
+    "viewport": "City header, a grid of value tiles with icons, a map block below.",
+    "risk": "Indistinguishable from any weather app by design.",
+    "html": ".impeccable/mocks/decision/canon-desktop.html"
+  },
+  "steer": true
+}
