@@ -96,3 +96,24 @@ export async function getLive(city: City, today = new Date().toISOString().slice
 		notice: NOTICE
 	} satisfies Live;
 }
+
+/** Compact live state of a city, for the home page and /api/cities */
+export async function getSnapshot(city: City) {
+	const live = await getLive(city);
+	return {
+		slug: city.slug,
+		name: city.name,
+		region: city.region,
+		headline: live.headline,
+		temperature: live.weather?.data.temperature ?? null,
+		feelsLikeMax: live.weather?.data.next24h.feelsLikeMax ?? null,
+		rainNext24h: live.weather?.data.next24h.rainTotal ?? null,
+		air: live.readings.air ?? null,
+		pm25: live.air?.data.next24h.pm25 ?? null,
+		updated: live.weather?.fetchedAt ?? null,
+		stale: Boolean(live.weather?.stale || live.air?.stale),
+		unavailable: live.unavailable
+	};
+}
+
+export type Snapshot = Awaited<ReturnType<typeof getSnapshot>>;

@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-11T12:00:00Z",
+  "title": "Design System: Ghana Cities",
+  "extensions": {
+    "colorMeta": {
+      "accent": { "role": "primary", "displayName": "Signal Blue", "canonical": "#1d4ed8", "tonalRamp": ["#172554", "#1e3a8a", "#1e40af", "#1d4ed8", "#2563eb", "#60a5fa", "#bfdbfe", "#eff6ff"] },
+      "accent-hover": { "role": "primary", "displayName": "Deep Signal Blue", "canonical": "#1e40af" },
+      "accent-wash": { "role": "primary", "displayName": "Blue Mist", "canonical": "#eaf1ff" },
+      "accent-wash-hover": { "role": "primary", "displayName": "Blue Mist Pressed", "canonical": "#dbe7ff" },
+      "selection": { "role": "primary", "displayName": "Selection Blue", "canonical": "#c7d8ff" },
+      "bg": { "role": "neutral", "displayName": "Harmattan Slate", "canonical": "#f2f5f8", "tonalRamp": ["#020617", "#0f172a", "#334155", "#475569", "#64748b", "#94a3b8", "#dbe2ea", "#f2f5f8"] },
+      "surface": { "role": "neutral", "displayName": "Paper White", "canonical": "#ffffff" },
+      "surface-sunk": { "role": "neutral", "displayName": "Well Slate", "canonical": "#e9eef3" },
+      "line": { "role": "neutral", "displayName": "Hairline", "canonical": "#dbe2ea" },
+      "line-strong": { "role": "neutral", "displayName": "Firm Hairline", "canonical": "#c3ccd7" },
+      "ink": { "role": "neutral", "displayName": "Night Ink", "canonical": "#0f172a", "tonalRamp": ["#020617", "#0f172a", "#1e293b", "#334155", "#475569", "#586579", "#94a3b8", "#e2e8f0"] },
+      "ink-2": { "role": "neutral", "displayName": "Slate Ink", "canonical": "#475569" },
+      "ink-3": { "role": "neutral", "displayName": "Quiet Ink", "canonical": "#586579" },
+      "ink-on-accent": { "role": "neutral", "displayName": "On-Accent White", "canonical": "#ffffff" },
+      "calm": { "role": "status", "displayName": "Calm Green", "canonical": "#166534", "tonalRamp": ["#052e16", "#14532d", "#166534", "#15803d", "#22c55e", "#86efac", "#dcfce7", "#e9f7ee"] },
+      "calm-wash": { "role": "status", "displayName": "Calm Wash", "canonical": "#e9f7ee" },
+      "watch": { "role": "status", "displayName": "Watch Amber", "canonical": "#854d0e", "tonalRamp": ["#422006", "#713f12", "#854d0e", "#a16207", "#ca8a04", "#facc15", "#fef08a", "#fef6dc"] },
+      "watch-wash": { "role": "status", "displayName": "Watch Wash", "canonical": "#fef6dc" },
+      "act": { "role": "status", "displayName": "Act Rust", "canonical": "#9a3412", "tonalRamp": ["#431407", "#7c2d12", "#9a3412", "#c2410c", "#ea580c", "#fb923c", "#fed7aa", "#ffeedd"] },
+      "act-wash": { "role": "status", "displayName": "Act Wash", "canonical": "#ffeedd" },
+      "severe": { "role": "status", "displayName": "Severe Red", "canonical": "#991b1b", "tonalRamp": ["#450a0a", "#7f1d1d", "#991b1b", "#b91c1c", "#dc2626", "#f87171", "#fecaca", "#fdeaea"] },
+      "severe-wash": { "role": "status", "displayName": "Severe Wash", "canonical": "#fdeaea" },
+      "series-1": { "role": "data", "displayName": "Series Blue", "canonical": "#2563eb", "tonalRamp": ["#172554", "#1e3a8a", "#1e40af", "#1d4ed8", "#2563eb", "#60a5fa", "#bfdbfe", "#eff6ff"] },
+      "series-2": { "role": "data", "displayName": "Series Magenta", "canonical": "#be185d", "tonalRamp": ["#500724", "#831843", "#9d174d", "#be185d", "#db2777", "#f472b6", "#fbcfe8", "#fdf2f8"] },
+      "hotter": { "role": "data", "displayName": "Hotter Orange", "canonical": "#c2410c" },
+      "cooler": { "role": "data", "displayName": "Cooler Blue", "canonical": "#2563eb" },
+      "map-built-up": { "role": "data", "displayName": "Built-up Grey", "canonical": "#5b5f66" },
+      "map-boundary": { "role": "data", "displayName": "Boundary Slate", "canonical": "#334155" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page titles only: city name, home intro, Data, About." },
+      "headline": { "displayName": "Headline", "purpose": "Big values in tiles and findings rows; Data page section headings." },
+      "title": { "displayName": "Title", "purpose": "Section headings, alert banner headline, city card names." },
+      "title-sm": { "displayName": "Title small", "purpose": "Sub-sections, topic names, download groups; wordmark at weight 750." },
+      "body": { "displayName": "Body", "purpose": "Running text at 60-75ch; nav, tabs and buttons at weight 600-650." },
+      "body-lg": { "displayName": "Body large", "purpose": "Ledes, topic summaries, alert advice, About prose." },
+      "label": { "displayName": "Label", "purpose": "Tile labels, badges, legends, tables, captions, footer." },
+      "mono": { "displayName": "Mono", "purpose": "WMS/WFS service URLs and code only." }
+    },
+    "shadows": [
+      { "name": "resting", "value": "0 1px 2px rgb(15 23 42 / 0.05), 0 4px 14px -4px rgb(15 23 42 / 0.08)", "purpose": "Cards, tiles, alert banner, chart panel, tables, current tab pill." },
+      { "name": "raised", "value": "0 2px 4px rgb(15 23 42 / 0.06), 0 12px 28px -8px rgb(15 23 42 / 0.16)", "purpose": "Hovered city card, floating map-load button, chart tooltip." },
+      { "name": "inset-hairline", "value": "inset 0 0 0 1px #dbe2ea", "purpose": "Map panel frame, service and endpoint rows." },
+      { "name": "focus-ring", "value": "outline: 3px solid #1d4ed8; outline-offset: 2px; border-radius: 4px", "purpose": "Every focus-visible element." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "All transitions." },
+      { "name": "state-fast", "value": "0.2s", "purpose": "Button and nav colour, map button lift, disclosure chevron." },
+      { "name": "state-tab", "value": "0.25s", "purpose": "Tab background and colour." },
+      { "name": "card-lift", "value": "0.3s, translateY(-2px)", "purpose": "City card hover: shadow to raised plus 2px lift." },
+      { "name": "reduced-motion", "value": "durations forced to 0.01ms", "purpose": "prefers-reduced-motion: reduce." }
+    ],
+    "breakpoints": [
+      { "name": "phone-compact", "value": "30rem" },
+      { "name": "tabs-scroll", "value": "34rem" },
+      { "name": "card-photo-top", "value": "40rem" },
+      { "name": "header-row", "value": "60rem" },
+      { "name": "city-two-column", "value": "64rem" },
+      { "name": "cards-five-across", "value": "80rem" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled blue pill for the main action of a block.",
+      "html": "<a class='ds-btn-primary' href='#'>Open the data</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 999px; background: var(--accent, #1d4ed8); color: #fff; font-family: 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif; font-weight: 650; text-decoration: none; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary:hover { background: var(--accent-hover, #1e40af); } .ds-btn-primary:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Blue Mist pill for secondary actions beside a primary.",
+      "html": "<a class='ds-btn-secondary' href='#'>Open the map</a>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 999px; background: var(--accent-wash, #eaf1ff); color: var(--accent, #1d4ed8); font-family: 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif; font-weight: 650; text-decoration: none; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-secondary:hover { background: #dbe7ff; color: #1e40af; } .ds-btn-secondary:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; }"
+    },
+    {
+      "name": "Map Load Button",
+      "kind": "button",
+      "refersTo": "button-on-media",
+      "description": "White raised pill floating over the static map preview.",
+      "html": "<button class='ds-btn-media'><svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z'/><path d='M15 5.764v15'/><path d='M9 3.236v15'/></svg>Load interactive map</button>",
+      "css": ".ds-btn-media { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; border: 0; border-radius: 999px; background: #fff; color: #0f172a; font: 650 1rem 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif; cursor: pointer; box-shadow: 0 2px 4px rgb(15 23 42 / 0.06), 0 12px 28px -8px rgb(15 23 42 / 0.16); transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-media:hover { transform: translateY(-1px); } .ds-btn-media:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; }"
+    },
+    {
+      "name": "Site Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header pills for cities and tools; current page in Blue Mist.",
+      "html": "<nav class='ds-nav'><a href='#' aria-current='page'>Accra</a><a href='#'>Kumasi</a><a href='#'>Tamale</a><a href='#'>Map</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 0.25rem; padding: 0.75rem 1rem; background: #fff; border-bottom: 1px solid #dbe2ea; font-family: 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif; } .ds-nav a { color: #475569; font-weight: 600; text-decoration: none; padding: 0.5rem 0.75rem; border-radius: 999px; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-nav a:hover { color: #0f172a; background: #e9eef3; } .ds-nav a[aria-current='page'] { color: #1d4ed8; background: #eaf1ff; } .ds-nav a:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; }"
+    },
+    {
+      "name": "Topic Tabs",
+      "kind": "nav",
+      "refersTo": "tab",
+      "description": "Segmented control: sunk pill track, current tab as a white raised pill.",
+      "html": "<nav class='ds-tabs'><a href='#' aria-current='page'>Flood &amp; Rain</a><a href='#'>Heat &amp; Air</a><a href='#'>Services</a><a href='#'>Environment</a></nav>",
+      "css": ".ds-tabs { display: flex; gap: 0.25rem; padding: 0.25rem; width: fit-content; border-radius: 999px; background: #e9eef3; font-family: 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif; } .ds-tabs a { padding: 0.5rem 1rem; border-radius: 999px; color: #475569; font-weight: 650; text-decoration: none; white-space: nowrap; transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-tabs a:hover { color: #0f172a; } .ds-tabs a[aria-current='page'] { background: #fff; color: #0f172a; box-shadow: 0 1px 2px rgb(15 23 42 / 0.05), 0 4px 14px -4px rgb(15 23 42 / 0.08); } .ds-tabs a:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 2px; }"
+    },
+    {
+      "name": "Level Badges",
+      "kind": "chip",
+      "refersTo": "level-badge-calm",
+      "description": "Level pill: colour, icon shape and word together; never colour alone.",
+      "html": "<div class='ds-badges'><span class='ds-badge calm'><svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='12' cy='12' r='10'/><path d='m9 12 2 2 4-4'/></svg>Good</span><span class='ds-badge watch'><svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='12' cy='12' r='10'/><line x1='12' x2='12' y1='8' y2='12'/><line x1='12' x2='12.01' y1='16' y2='16'/></svg>Moderate</span><span class='ds-badge act'><svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3'/><path d='M12 9v4'/><path d='M12 17h.01'/></svg>Unhealthy for some</span><span class='ds-badge severe'><svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M12 16h.01'/><path d='M12 8v4'/><path d='M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z'/></svg>Unhealthy</span></div>",
+      "css": ".ds-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; } .ds-badge { display: inline-flex; align-items: center; gap: 0.35em; padding: 0.2em 0.6em 0.2em 0.45em; border-radius: 999px; font: 650 0.8125rem/1.3 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif; } .ds-badge svg { flex: none; } .ds-badge.calm { color: #166534; background: #e9f7ee; } .ds-badge.watch { color: #854d0e; background: #fef6dc; } .ds-badge.act { color: #9a3412; background: #ffeedd; } .ds-badge.severe { color: #991b1b; background: #fdeaea; }"
+    },
+    {
+      "name": "Value Tile",
+      "kind": "card",
+      "refersTo": "value-tile",
+      "description": "White tile: icon label, big value, then a level badge or one detail line.",
+      "html": "<div class='ds-tile'><p class='ds-tile-label'><svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z'/></svg>Feels like, max</p><p class='ds-tile-value'>37 °C</p><p class='ds-tile-detail'>Now 26 °C, feels 30 °C</p></div>",
+      "css": ".ds-tile { display: grid; gap: 0.5rem; padding: 1rem; max-width: 14rem; background: #fff; border-radius: 14px; box-shadow: 0 1px 2px rgb(15 23 42 / 0.05), 0 4px 14px -4px rgb(15 23 42 / 0.08); font-family: 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif; color: #0f172a; } .ds-tile p { margin: 0; } .ds-tile-label { display: flex; align-items: center; gap: 0.5rem; color: #475569; font-size: 0.8125rem; font-weight: 600; } .ds-tile-label svg { color: #586579; } .ds-tile-value { font-size: 2rem; font-weight: 700; line-height: 1; letter-spacing: -0.02em; } .ds-tile-detail { color: #475569; font-size: 0.8125rem; }"
+    },
+    {
+      "name": "Alert Banner",
+      "kind": "custom",
+      "refersTo": "alert-banner-watch",
+      "description": "Shown only when a level is reached: wash, level icon, headline, advice, not-official line.",
+      "html": "<section class='ds-alert'><h2><svg width='26' height='26' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='12' cy='12' r='10'/><line x1='12' x2='12' y1='8' y2='12'/><line x1='12' x2='12.01' y1='16' y2='16'/></svg>River higher than usual</h2><p class='ds-alert-advice'>Watch for rising water near the river.</p><p class='ds-alert-fine'>Not an official warning. Follow the <a href='#'>Ghana Meteorological Agency</a> and <a href='#'>NADMO</a>.</p></section>",
+      "css": ".ds-alert { display: grid; gap: 0.5rem; padding: 1rem 1.5rem; border-radius: 14px; background: #fef6dc; box-shadow: 0 1px 2px rgb(15 23 42 / 0.05), 0 4px 14px -4px rgb(15 23 42 / 0.08); font-family: 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif; color: #0f172a; } .ds-alert h2 { display: flex; align-items: center; gap: 0.5rem; margin: 0; font-size: 1.5rem; line-height: 1.15; } .ds-alert h2 svg { flex: none; color: #854d0e; } .ds-alert p { margin: 0; } .ds-alert-advice { font-size: 1.1875rem; max-width: 52ch; } .ds-alert-fine { color: #475569; font-size: 0.8125rem; } .ds-alert a { color: #1d4ed8; text-underline-offset: 0.2em; } .ds-alert a:hover { color: #1e40af; text-decoration-thickness: 2px; }"
+    },
+    {
+      "name": "City Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Photo-top card linking to a city; lifts to the raised shadow on hover.",
+      "html": "<article class='ds-card'><div class='ds-card-photo'></div><div class='ds-card-body'><h2><a href='#'>Kumasi</a></h2><p class='ds-card-region'>Ashanti Region</p><dl><div><dt>Feels like, max</dt><dd>34 °C</dd></div><div><dt>Rain, next 24 h</dt><dd>2.3 mm</dd></div><div><dt>Air</dt><dd>Moderate</dd></div></dl></div></article>",
+      "css": ".ds-card { display: grid; max-width: 17rem; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 1px 2px rgb(15 23 42 / 0.05), 0 4px 14px -4px rgb(15 23 42 / 0.08); font-family: 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif; color: #0f172a; transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); } .ds-card:hover { box-shadow: 0 2px 4px rgb(15 23 42 / 0.06), 0 12px 28px -8px rgb(15 23 42 / 0.16); transform: translateY(-2px); } .ds-card:focus-within { outline: 3px solid #1d4ed8; outline-offset: 2px; } .ds-card-photo { aspect-ratio: 3 / 2; background: #e9eef3; } .ds-card-body { display: grid; gap: 0.75rem; padding: 1rem 1rem 1.5rem; } .ds-card h2 { margin: 0; font-size: 1.5rem; line-height: 1.15; } .ds-card h2 a { color: inherit; text-decoration: none; } .ds-card h2 a:focus-visible { outline: none; } .ds-card-region { margin: -0.5rem 0 0; color: #586579; font-size: 0.8125rem; } .ds-card dl { display: grid; gap: 0.5rem; margin: 0; padding-top: 0.75rem; border-top: 1px solid #dbe2ea; } .ds-card dl div { display: flex; justify-content: space-between; font-size: 0.8125rem; } .ds-card dt { color: #475569; } .ds-card dd { margin: 0; font-weight: 650; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Outdoor Forecast",
+    "overview": "Ghana Cities looks and behaves like a well-made weather and air-quality app, the category standard played straight. A light, slightly slate-tinted ground holds white cards with soft elevation; one blue accent marks what can be pressed or what is selected; and a single fixed level scale (calm, watch, act, severe) carries every judgement the site makes about conditions. Nothing on the page is decorative alarm. Colour that means \"attention\" is rationed to the levels, and the levels never travel alone: each one is a word, an icon shape and a colour together.\n\nThe world is built for reading outdoors on a phone in bright sun: one highly legible workhorse sans (Atkinson Hyperlegible Next), generous body leading (1.55), big tabular-feeling values, text contrast at 4.5:1 or better everywhere including the quietest ink. Density is moderate. Phones get a single column with tiles two-up; desktops use their width side by side (status left, topic and map right) rather than stretching the phone layout. Ghana appears through freely licensed city photos with credits, local terms and place names, not through flags, kente patterns or national colours.\n\nSpecialist material (district tables, method notes, downloads, WMS/WFS URLs) lives in the same world, one scroll below the resident view, set as calm tables and inset rows rather than a GIS portal's layer lists.",
+    "keyCharacteristics": [
+      "Light slate ground (bg), white surfaces, soft two-layer shadows; flat tonal fills for wells and tracks.",
+      "One blue accent for action, links, selection and focus; nothing else is blue in the chrome.",
+      "Four-step level scale, always colour + icon shape + word; tinted wash behind dark level text.",
+      "One variable sans for everything; monospace only for service URLs.",
+      "Pill-shaped controls (999px), 14px cards, 8px small containers.",
+      "Map and chart colours obey the same restraint: data series never borrow level colours."
+    ],
+    "rules": [
+      { "name": "The Reserved Levels Rule", "body": "Calm, watch, act and severe colours mean a level and nothing else. They are never chart series, decoration, category colours or brand accents.", "section": "colors" },
+      { "name": "The Never Alone Rule", "body": "A level is always colour plus icon shape (circle-check, circle-alert, triangle-alert, octagon-alert) plus a word. Compact slots use the reading's short word (\"Moderate\", \"Unhealthy for some\"); they never drop to colour only.", "section": "colors" },
+      { "name": "The One Blue Rule", "body": "Signal Blue is for action, selection and focus. If an element is blue in the chrome, it can be pressed or is the current choice.", "section": "colors" },
+      { "name": "The No Alarm Map Rule", "body": "Map styles share the site's restraint: built-up land is neutral grey, not red, and alarm hues on maps are reserved for real hazard gradients (the heat diverging scale) or point symbols.", "section": "colors" },
+      { "name": "The One Voice Rule", "body": "Every role uses Atkinson Hyperlegible Next. Monospace appears only where users copy machine strings.", "section": "typography" },
+      { "name": "The Sentence Case Rule", "body": "No uppercase labels, no tracked-out small caps, no eyebrow text above headings. Labels are sentence case with their icon.", "section": "typography" },
+      { "name": "The Two Lifts Rule", "body": "Surfaces rest at Resting; only things that float over other content or respond to hover use Raised. There is no third level and no hard offset shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do pair every level with its icon shape and word; use the reading's short form in badges and table cells.",
+      "Do keep text at Quiet Ink (#586579) or darker; it is the lightest ink that clears 4.5:1 on the ground.",
+      "Do use series-1 / series-2 for measured vs. reference series and hotter / cooler for diverging values.",
+      "Do make every control a pill and every card 14px, on Paper White with the Resting shadow.",
+      "Do keep Ghana's presence to credited, freely licensed photos, local terms and place names.",
+      "Do show stale or missing data in place (watch-wash strip, \"Not available right now\") rather than hiding the tile.",
+      "Do honour reduced motion; motion is limited to 0.2 to 0.3s ease-out colour, shadow and 1 to 2px lift transitions."
+    ],
+    "donts": [
+      "Don't use calm, watch, act or severe colours for chart series, categories or decoration.",
+      "Don't show a level by colour alone.",
+      "Don't introduce a second accent hue in the chrome, or blue on anything that is not interactive or selected.",
+      "Don't colour built-up land or ordinary map features red.",
+      "Don't add uppercase eyebrows, kickers or tracked labels above headings.",
+      "Don't add a third shadow level or hard offset shadows.",
+      "Don't add a second display typeface; hierarchy comes from the step scale and weight."
+    ]
+  }
+}

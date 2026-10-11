@@ -36,3 +36,4 @@ static/portal/
 .claude/skills/impeccable/scripts/bin/
 .impeccable/hook.cache.json
 .impeccable/questions/
+.impeccable/review/

@@ -35,10 +35,25 @@ async function mastercode() {
 	console.log(`Masterportal ${VERSION} → static/portal/mastercode/${MASTERCODE}`);
 }
 
+/**
+ * Masterportal's colours are compiled into its CSS. A copy next to the original (so its
+ * relative font URLs keep working) swaps them for the site's accent and ink.
+ */
+async function themedCss() {
+	const dir = path.join(OUT, 'mastercode', MASTERCODE, 'css');
+	const css = await readFile(path.join(dir, 'masterportal.css'), 'utf8');
+	const themed = css.replaceAll('#3c5f94', '#1d4ed8').replaceAll('#003063', '#0f172a').concat(
+		// Area beyond the basemap tiles matches the site's sunk surface instead of white
+		'\n.ol-viewport,#map{background:#e9eef3}'
+	);
+	await writeFile(path.join(dir, 'masterportal-ghana.css'), themed);
+}
+
 const json = (file: string, data: unknown) =>
 	writeFile(path.join(PORTAL, file), JSON.stringify(data, null, '\t'));
 
 await mastercode();
+await themedCss();
 await rm(PORTAL, { recursive: true, force: true });
 await mkdir(path.join(PORTAL, 'resources', 'img'), { recursive: true });
 

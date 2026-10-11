@@ -1,0 +1,169 @@
+/*
+ * Ghana Cities — the category standard of a weather and air-quality app, played straight.
+ * Light ground for reading outdoors in bright sun; one blue accent; a fixed level scale
+ * that always travels with a word and an icon.
+ */
+:root {
+	color-scheme: light;
+
+	/* Surfaces */
+	--bg: #f2f5f8;
+	--surface: #ffffff;
+	--surface-sunk: #e9eef3;
+	--line: #dbe2ea;
+	--line-strong: #c3ccd7;
+
+	/* Ink */
+	--ink: #0f172a;
+	--ink-2: #475569;
+	--ink-3: #586579;
+	--ink-on-accent: #ffffff;
+
+	/* Accent: action and selection only */
+	--accent: #1d4ed8;
+	--accent-hover: #1e40af;
+	--accent-wash: #eaf1ff;
+
+	/* Levels: text colour on tint, both ≥4.5:1 */
+	--calm: #166534;
+	--calm-wash: #e9f7ee;
+	--watch: #854d0e;
+	--watch-wash: #fef6dc;
+	--act: #9a3412;
+	--act-wash: #ffeedd;
+	--severe: #991b1b;
+	--severe-wash: #fdeaea;
+
+	/* Chart series (validated: dataviz six checks) */
+	--series-1: #2563eb;
+	--series-2: #be185d;
+	--hotter: #c2410c;
+	--cooler: #2563eb;
+
+	/* Type */
+	--font: 'Atkinson Hyperlegible Next Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+	--step--1: 0.8125rem;
+	--step-0: 1rem;
+	--step-1: 1.1875rem;
+	--step-2: 1.5rem;
+	--step-3: 2rem;
+	--step-4: clamp(2.25rem, 1.6rem + 2.6vw, 3.25rem);
+
+	/* Space */
+	--s1: 0.25rem;
+	--s2: 0.5rem;
+	--s3: 0.75rem;
+	--s4: 1rem;
+	--s5: 1.5rem;
+	--s6: 2rem;
+	--s7: 3rem;
+	--s8: 4.5rem;
+
+	--radius: 14px;
+	--radius-sm: 8px;
+	--shadow: 0 1px 2px rgb(15 23 42 / 0.05), 0 4px 14px -4px rgb(15 23 42 / 0.08);
+	--shadow-raised: 0 2px 4px rgb(15 23 42 / 0.06), 0 12px 28px -8px rgb(15 23 42 / 0.16);
+	--ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+	--page: 76rem;
+	--gutter: clamp(1rem, 0.6rem + 2vw, 2rem);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	scrollbar-color: var(--line-strong) transparent;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--ink);
+	font-family: var(--font);
+	font-size: var(--step-0);
+	line-height: 1.55;
+	font-optical-sizing: auto;
+	-webkit-font-smoothing: antialiased;
+	caret-color: var(--accent);
+}
+
+h1,
+h2,
+h3,
+h4 {
+	margin: 0;
+	line-height: 1.15;
+	text-wrap: balance;
+	letter-spacing: -0.012em;
+}
+
+p {
+	margin: 0;
+	text-wrap: pretty;
+}
+
+a {
+	color: var(--accent);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.2em;
+}
+
+a:hover {
+	color: var(--accent-hover);
+	text-decoration-thickness: 2px;
+}
+
+::selection {
+	background: #c7d8ff;
+	color: var(--ink);
+}
+
+:focus-visible {
+	outline: 3px solid var(--accent);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+button {
+	font: inherit;
+	color: inherit;
+}
+
+table {
+	border-collapse: collapse;
+	font-variant-numeric: tabular-nums;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+.wrap {
+	width: min(100% - 2 * var(--gutter), var(--page));
+	margin-inline: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+	}
+}

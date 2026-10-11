@@ -11,6 +11,8 @@ export interface Reading {
 	level: Level;
 	/** Short headline, e.g. "Heavy rain likely" */
 	label: string;
+	/** Even shorter form for badges and table rows, when it differs (e.g. "Moderate") */
+	short?: string;
 	/** One sentence of advice for residents */
 	advice: string;
 }
@@ -89,26 +91,35 @@ export function airLevel(pm25: number, pm10: number, dustShare = 0): Reading {
 	const band = (v: number, t: { watch: number; act: number; severe: number }): Level =>
 		v >= t.severe ? 'severe' : v >= t.act ? 'act' : v >= t.watch ? 'watch' : 'calm';
 	const level = worst([band(pm25, AIR.pm25), band(pm10, AIR.pm10)]);
-	const dusty = dustShare >= 0.5 && level !== 'calm';
+	// Labels lead with the step names of the air quality scale shown on city pages
+	const dust =
+		dustShare >= 0.5 && level !== 'calm'
+			? level === 'watch'
+				? ' (Saharan dust)'
+				: ' (Harmattan dust)'
+			: '';
 	if (level === 'severe')
 		return {
 			level,
-			label: dusty ? 'Unhealthy dust (Harmattan)' : 'Unhealthy air',
+			label: `Air quality: unhealthy${dust}`,
+			short: 'Unhealthy',
 			advice: 'Limit time outdoors; cover nose and mouth when you go out.'
 		};
 	if (level === 'act')
 		return {
 			level,
-			label: dusty ? 'Dusty air (Harmattan)' : 'Unhealthy air for sensitive groups',
+			label: `Air quality: unhealthy for some${dust}`,
+			short: 'Unhealthy for some',
 			advice: 'People with asthma, older people and children should limit hard activity outdoors.'
 		};
 	if (level === 'watch')
 		return {
 			level,
-			label: dusty ? 'Some dust in the air' : 'Moderate air quality',
+			label: `Air quality: moderate${dust}`,
+			short: 'Moderate',
 			advice: 'Unusually sensitive people may want to take it easy outdoors.'
 		};
-	return { level, label: 'Good air quality', advice: '' };
+	return { level, label: 'Air quality: good', short: 'Good', advice: '' };
 }
 
 /** River discharge compared with the same river cell over the last two years */

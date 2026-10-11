@@ -1,3 +1,4 @@
+import type { DistrictRow } from '#lib/indicators.ts';
 import { db } from './db.ts';
 
 export interface IndicatorSeries {
@@ -42,10 +43,12 @@ export async function getIndicators(slug: string) {
 }
 
 /** Districts of a city with their indicator columns (the gs_district view without geometry) */
-export async function districtRows(slug: string): Promise<Record<string, unknown>[]> {
+export async function districtRows(slug: string): Promise<DistrictRow[]> {
 	// SELECT * keeps the view's column order (to_jsonb would sort the keys); geometry is dropped
 	const rows = await db()`SELECT * FROM gs_district WHERE city_slug = ${slug} ORDER BY name`;
-	return rows.map((r) => Object.fromEntries(Object.entries(r).filter(([k]) => k !== 'geom')));
+	return rows.map(
+		(r) => Object.fromEntries(Object.entries(r).filter(([k]) => k !== 'geom')) as DistrictRow
+	);
 }
 
 const ATTRIBUTION =

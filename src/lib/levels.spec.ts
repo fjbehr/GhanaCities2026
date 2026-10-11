@@ -31,9 +31,11 @@ describe('airLevel', () => {
 		expect(airLevel(60, 40).level).toBe('severe');
 	});
 
-	it('names Harmattan dust when dust dominates', () => {
-		expect(airLevel(30, 300, 0.8).label).toBe('Unhealthy dust (Harmattan)');
-		expect(airLevel(30, 300, 0.1).label).toBe('Unhealthy air');
+	it('leads with the scale word and names Harmattan dust when dust dominates', () => {
+		expect(airLevel(30, 300, 0.8).label).toBe('Air quality: unhealthy (Harmattan dust)');
+		expect(airLevel(30, 300, 0.1).label).toBe('Air quality: unhealthy');
+		expect(airLevel(12, 20, 0.7).label).toBe('Air quality: moderate (Saharan dust)');
+		expect(airLevel(5, 10).label).toBe('Air quality: good');
 	});
 });
 

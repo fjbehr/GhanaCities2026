@@ -37,6 +37,10 @@ export default defineConfig(
 	{
 		// Override or add rule settings here, such as:
 		// 'svelte/button-has-type': 'error'
-		rules: {}
+		rules: {
+			// The site always runs at the root (no paths.base): Masterportal, the GeoServer and basemap
+			// proxies and the API all use fixed root paths, so links need no resolve()
+			'svelte/no-navigation-without-resolve': 'off'
+		}
 	}
 );

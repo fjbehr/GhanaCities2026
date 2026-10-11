@@ -11,3 +11,6 @@ bun.lockb
 /tools/
 /.claude/
 /.impeccable/
+
+# Maintained by impeccable (machine-read frontmatter)
+/DESIGN.md

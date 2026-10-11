@@ -3,6 +3,7 @@
  * and reports console errors and failed requests.
  *
  *   tsx scripts/screenshot.ts <out-dir> <name>=<url>[@<width>x<height>] ...
+ *   FULL_PAGE=1 captures the whole page instead of the first viewport
  */
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
@@ -47,7 +48,10 @@ try {
 		});
 		await new Promise((r) => setTimeout(r, 1500)); // let the map finish drawing
 		const file = path.join(outDir, `${name}.png`);
-		await page.screenshot({ path: file as `${string}.png` });
+		await page.screenshot({
+			path: file as `${string}.png`,
+			fullPage: process.env.FULL_PAGE === '1'
+		});
 		console.log(`${name}: ${file}`);
 		for (const i of issues) console.log(`  ${i.slice(0, 300)}`);
 		problems += issues.length;
