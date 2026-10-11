@@ -28,6 +28,7 @@
 		"pipeline:geoserver": "tsx pipeline/07-geoserver-publish.ts && tsx pipeline/07b-geoserver-security.ts",
 		"portal": "tsx portal-config/build.ts",
 		"photos": "tsx scripts/build-photos.ts",
+		"deploy:export": "tsx deploy/export-data.ts",
 		"pipeline:heat": "tsx pipeline/04b-heat.ts"
 	},
 	"devDependencies": {

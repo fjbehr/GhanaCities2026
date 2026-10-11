@@ -29,6 +29,9 @@ Thumbs.db
 .claude/settings.local.json
 *.log
 
+# server data bundle (npm run deploy:export)
+deploy/out/
+
 # generated Masterportal (npm run portal)
 static/portal/
 

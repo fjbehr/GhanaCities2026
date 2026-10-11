@@ -27,10 +27,13 @@ async function mastercode() {
 		zip
 	);
 	await mkdir(OUT, { recursive: true });
-	// Windows ships bsdtar, which unpacks zip archives
-	const res = spawnSync('tar', ['-xf', zip, '-C', OUT, `mastercode/${MASTERCODE}`], {
-		stdio: 'inherit'
-	});
+	// Windows ships bsdtar, which unpacks zip archives; GNU tar on Linux does not, so use unzip
+	const res =
+		process.platform === 'win32'
+			? spawnSync('tar', ['-xf', zip, '-C', OUT, `mastercode/${MASTERCODE}`], { stdio: 'inherit' })
+			: spawnSync('unzip', ['-q', '-o', zip, `mastercode/${MASTERCODE}/*`, '-d', OUT], {
+					stdio: 'inherit'
+				});
 	if (res.status !== 0) throw new Error('Could not unpack the Masterportal release');
 	console.log(`Masterportal ${VERSION} → static/portal/mastercode/${MASTERCODE}`);
 }
