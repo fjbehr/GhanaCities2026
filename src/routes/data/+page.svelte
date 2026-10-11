@@ -201,7 +201,9 @@
 				>
 			</li>
 			<li>
-				<span>WMTS</span><code>{origin}/geoserver/gwc/service/wmts?request=GetCapabilities</code>
+				<span>WMTS</span><code
+					>{origin}/geoserver/ghana/gwc/service/wmts?request=GetCapabilities</code
+				>
 			</li>
 			<li>
 				<span>API</span><code>{origin}/api/cities</code> · <code>/api/cities/accra/live</code> ·

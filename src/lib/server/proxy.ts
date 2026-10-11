@@ -11,6 +11,8 @@ export interface ProxyRoute {
 	prefix: string;
 	/** Upstream base URL; the part after `prefix` is appended to its path */
 	target: string;
+	/** Which requests may pass; `path` is the part after `prefix`. Default: all */
+	allow?: (method: string, path: string, search: URLSearchParams) => boolean;
 }
 
 // Hop-by-hop headers (RFC 9110 §7.6.1) plus `host`, which must match the upstream

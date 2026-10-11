@@ -20,6 +20,11 @@ export const variables = defineEnvVars({
 		description: 'Upstream GeoServer, proxied under /geoserver',
 		schema: url('http://localhost:8081/geoserver')
 	},
+	GEOSERVER_ADMIN: {
+		description:
+			'true: the GeoServer admin interface (with login) is reachable at /geoserver/web; the REST API always stays local',
+		schema: (value: string | undefined) => value === 'true'
+	},
 	BASEMAP_URL: {
 		description: 'Upstream `pmtiles serve`, proxied under /basemap',
 		schema: url('http://localhost:8082')
