@@ -101,6 +101,8 @@
 		background: var(--accent-wash);
 	}
 	thead th {
+		padding: 0;
+		vertical-align: bottom;
 		position: sticky;
 		top: 0;
 		background: var(--surface);
@@ -119,10 +121,16 @@
 		font-weight: 650;
 		color: var(--ink-2);
 		line-height: 1.3;
+		/* The whole header cell is the sort control (44 px touch target) */
+		display: block;
+		box-sizing: border-box;
+		width: 100%;
+		min-height: 2.75rem;
+		padding: var(--s3);
 	}
 	thead button:focus-visible {
 		outline: 3px solid var(--accent);
-		outline-offset: 2px;
+		outline-offset: -3px;
 		border-radius: 4px;
 	}
 	thead button :global(svg) {

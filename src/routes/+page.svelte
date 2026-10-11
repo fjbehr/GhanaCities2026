@@ -29,7 +29,7 @@
 	<div class="section-head">
 		<h2 id="today">Today</h2>
 		<p class="meta">
-			Forecasts updated {ago(updated)}<span class="long"> · {site.notOfficial}</span>
+			Forecasts updated {ago(updated)}<span class="long">&nbsp;· {site.notOfficial}</span>
 		</p>
 	</div>
 	<div class="cards">
@@ -200,7 +200,7 @@
 		color: var(--accent);
 	}
 	.button.secondary:hover {
-		background: #dbe7ff;
+		background: var(--accent-wash-hover);
 		color: var(--accent-hover);
 	}
 </style>

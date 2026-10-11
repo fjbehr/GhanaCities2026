@@ -23,6 +23,7 @@
 	--accent: #1d4ed8;
 	--accent-hover: #1e40af;
 	--accent-wash: #eaf1ff;
+	--accent-wash-hover: #dbe7ff;
 
 	/* Levels: text colour on tint, both ≥4.5:1 */
 	--calm: #166534;
@@ -33,9 +34,13 @@
 	--act-wash: #ffeedd;
 	--severe: #991b1b;
 	--severe-wash: #fdeaea;
+	/* Level marks (bars, not text): brighter mid-steps so the scale reads as a ramp */
+	--watch-mark: #ca8a04;
+	--act-mark: #ea580c;
 
 	/* Chart series (validated: dataviz six checks) */
 	--series-1: #2563eb;
+	--series-1-soft: #93b4f5;
 	--series-2: #be185d;
 	--hotter: #c2410c;
 	--cooler: #2563eb;

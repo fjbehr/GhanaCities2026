@@ -74,7 +74,7 @@
 		{#if hasRef && refLabel}<li><span class="key line"></span>{refLabel}</li>{/if}
 	</ul>
 	<div class="plot" bind:clientWidth={width}>
-		<svg viewBox="0 0 {width} {height}" {height} role="img" aria-label={title}>
+		<svg viewBox="0 0 {width} {height}" {height} role="group" aria-label={title}>
 			{#each ticks as t (t)}
 				<line class="grid" x1={pad.left} x2={width - pad.right} y1={y(t)} y2={y(t)} />
 				<text class="tick" x={pad.left - 6} y={y(t)} dy="0.32em" text-anchor="end">{num(t)}</text>
@@ -99,6 +99,8 @@
 				{/each}
 			{/if}
 			{#each columns as c, i (c.label)}
+				<!-- Each column is a labelled image that keyboard users can step through to see its tooltip -->
+				<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 				<rect
 					class="hit"
 					x={cx(i) - band / 2}
@@ -106,7 +108,7 @@
 					width={band}
 					height={height - pad.top - pad.bottom}
 					tabindex="0"
-					role="button"
+					role="img"
 					aria-label="{c.label}: {seriesLabel} {fmt(c.value)}{hasRef
 						? `, ${refLabel} ${fmt(c.ref)}`
 						: ''}"
@@ -219,7 +221,7 @@
 		transition: opacity 0.2s var(--ease-out);
 	}
 	.col.note {
-		fill: #93b4f5;
+		fill: var(--series-1-soft);
 	}
 	.col.dim {
 		opacity: 0.45;

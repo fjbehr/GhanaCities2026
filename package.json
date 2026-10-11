@@ -27,6 +27,7 @@
 		"pipeline": "npm run pipeline:download && npm run pipeline:boundaries && npm run pipeline:osm && npm run pipeline:rasters && npm run pipeline:heat && npm run pipeline:indicators && npm run pipeline:basemap && npm run pipeline:geoserver",
 		"pipeline:geoserver": "tsx pipeline/07-geoserver-publish.ts",
 		"portal": "tsx portal-config/build.ts",
+		"photos": "tsx scripts/build-photos.ts",
 		"pipeline:heat": "tsx pipeline/04b-heat.ts"
 	},
 	"devDependencies": {
@@ -44,6 +45,7 @@
 		"prettier": "^3.8.3",
 		"prettier-plugin-svelte": "^4.1.0",
 		"puppeteer-core": "^25.13.0",
+		"sharp": "^0.35.5",
 		"svelte": "^5.57.1",
 		"svelte-check": "^4.6.0",
 		"tsx": "^4.23.15",

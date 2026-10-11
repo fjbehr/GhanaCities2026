@@ -59,7 +59,8 @@
 			<p class="notice">{site.notOfficial}</p>
 			<p>
 				Data: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors,
-				Open-Meteo (CC BY 4.0), Copernicus, NASA, WorldPop, ESA, JRC, USGS and geoBoundaries.
+				<a href="https://open-meteo.com">Weather data by Open-Meteo.com</a> (CC BY 4.0), Copernicus,
+				NASA, WorldPop, ESA, JRC, USGS and geoBoundaries.
 				<a href="/data">Sources, licences and methods</a>.
 			</p>
 			<p>Non-commercial, built with open-source software and open data.</p>
@@ -121,6 +122,10 @@
 		mask-image: linear-gradient(to right, #000 85%, transparent);
 	}
 	nav a {
+		/* 44 px touch target */
+		display: inline-flex;
+		align-items: center;
+		min-height: 2.75rem;
 		color: var(--ink-2);
 		font-weight: 600;
 		text-decoration: none;

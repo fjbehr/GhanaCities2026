@@ -24,7 +24,10 @@ colors:
   act-wash: "#ffeedd"
   severe: "#991b1b"
   severe-wash: "#fdeaea"
+  watch-mark: "#ca8a04"
+  act-mark: "#ea580c"
   series-1: "#2563eb"
+  series-1-soft: "#93b4f5"
   series-2: "#be185d"
   hotter: "#c2410c"
   cooler: "#2563eb"
@@ -238,10 +241,11 @@ A cool, near-neutral slate palette with a single saturated blue, plus a reserved
 - **Act Rust** on **Act Wash** (act / act-wash): heavy rain, dangerous heat, unhealthy for some.
 - **Severe Red** on **Severe Wash** (severe / severe-wash): very heavy rain, extreme heat, unhealthy air.
 
-Each level text colour reads 6.3 to 7.2:1 on its own wash.
+Each level text colour reads 6.3 to 7.2:1 on its own wash. The level-scale bars use brighter mid-steps for the two middle levels, **Watch Mark** (watch-mark) and **Act Mark** (act-mark), so the four bars read as a ramp; they never carry text.
 
 ### Data series
 - **Series Blue** (series-1): primary measured series (monthly rain columns, bar lists).
+- **Series Blue Soft** (series-1-soft): a column with a note (e.g. a month still in progress).
 - **Series Magenta** (series-2): reference series (long-term normal line and dots).
 - **Hotter Orange** / **Cooler Blue** (hotter / cooler): the two sides of diverging heat bars.
 

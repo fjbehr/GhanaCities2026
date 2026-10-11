@@ -7,7 +7,11 @@ export interface Source {
 	url: string;
 	usedFor: string;
 	updated: string;
+	/** Attribution wording the licence asks for, quoted as given by the provider */
+	credit?: string;
 }
+
+const year = new Date().getFullYear();
 
 export const sources: Source[] = [
 	{
@@ -17,7 +21,8 @@ export const sources: Source[] = [
 		licenceUrl: 'https://creativecommons.org/licenses/by/4.0/',
 		url: 'https://open-meteo.com',
 		usedFor: 'Rain, temperature, feels-like temperature and UV for the next three days',
-		updated: 'Every 30 minutes'
+		updated: 'Every 30 minutes',
+		credit: 'Weather data by Open-Meteo.com'
 	},
 	{
 		name: 'Air quality forecast',
@@ -26,7 +31,8 @@ export const sources: Source[] = [
 		licenceUrl: 'https://creativecommons.org/licenses/by/4.0/',
 		url: 'https://open-meteo.com/en/docs/air-quality-api',
 		usedFor: 'Fine dust (PM2.5), coarse dust (PM10) and Saharan dust',
-		updated: 'Every hour'
+		updated: 'Every hour',
+		credit: `Generated using Copernicus Atmosphere Monitoring Service information [${year}]`
 	},
 	{
 		name: 'River discharge',
@@ -35,7 +41,8 @@ export const sources: Source[] = [
 		licenceUrl: 'https://creativecommons.org/licenses/by/4.0/',
 		url: 'https://open-meteo.com/en/docs/flood-api',
 		usedFor: 'Densu river above Weija (Accra)',
-		updated: 'Every 6 hours'
+		updated: 'Every 6 hours',
+		credit: `Generated using Copernicus Emergency Management Service information [${year}]`
 	},
 	{
 		name: 'Active fires',
@@ -80,7 +87,9 @@ export const sources: Source[] = [
 		licenceUrl: 'https://spacedata.copernicus.eu/collections/copernicus-digital-elevation-model',
 		url: 'https://spacedata.copernicus.eu',
 		usedFor: 'Low-lying areas',
-		updated: 'Static'
+		updated: 'Static',
+		credit:
+			'Produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved'
 	},
 	{
 		name: 'Surface water 1984–2021',
@@ -89,7 +98,8 @@ export const sources: Source[] = [
 		licenceUrl: 'https://global-surface-water.appspot.com/download',
 		url: 'https://global-surface-water.appspot.com',
 		usedFor: 'Where water stood and how often',
-		updated: 'Version 1.4'
+		updated: 'Version 1.4',
+		credit: 'Source: EC JRC/Google'
 	},
 	{
 		name: 'Rainfall (CHIRPS and CHPclim)',
@@ -126,7 +136,9 @@ export const sources: Source[] = [
 		licenceUrl: 'https://creativecommons.org/licenses/by/4.0/',
 		url: 'https://esa-worldcover.org',
 		usedFor: 'Trees, built-up land, cropland and other cover',
-		updated: 'Version 200'
+		updated: 'Version 200',
+		credit:
+			'© ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium'
 	},
 	{
 		name: 'Built-up area 1975–2030',
@@ -135,7 +147,8 @@ export const sources: Source[] = [
 		licenceUrl: 'https://creativecommons.org/licenses/by/4.0/',
 		url: 'https://human-settlement.emergency.copernicus.eu',
 		usedFor: 'Growth of the built-up area; 2030 is a projection',
-		updated: 'Release R2023A'
+		updated: 'Release R2023A',
+		credit: 'GHS-BUILT-S R2023A, European Commission, Joint Research Centre (JRC)'
 	},
 	{
 		name: 'Satellite image',
@@ -144,6 +157,8 @@ export const sources: Source[] = [
 		licenceUrl: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
 		url: 'https://s2maps.eu',
 		usedFor: 'Background image on the map',
-		updated: '2024'
+		updated: '2024',
+		credit:
+			'Sentinel-2 cloudless – https://s2maps.eu by EOX IT Services GmbH (Contains modified Copernicus Sentinel data 2024)'
 	}
 ];

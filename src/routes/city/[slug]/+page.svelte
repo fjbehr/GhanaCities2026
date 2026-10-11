@@ -290,6 +290,9 @@
 		}
 	}
 	.tabs a {
+		display: inline-flex;
+		align-items: center;
+		min-height: 2.75rem;
 		padding: var(--s2) var(--s4);
 		border-radius: 999px;
 		color: var(--ink-2);

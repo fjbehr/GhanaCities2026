@@ -22,7 +22,7 @@
 	];
 
 	/** Static preview of the topic's layers from GeoServer (cached by GeoWebCache) */
-	const preview = $derived.by(() => {
+	const preview = $derived.by(() => (width: number) => {
 		const [w, s, e, n] = city.bbox;
 		const [x0, y0] = merc(w, s);
 		const [x1, y1] = merc(e, n);
@@ -39,8 +39,8 @@
 			styles: '',
 			crs: 'EPSG:3857',
 			bbox,
-			width: '800',
-			height: '500',
+			width: String(width),
+			height: String((width * 5) / 8),
 			format: 'image/png',
 			transparent: 'false',
 			bgcolor: '0xE9EEF3'
@@ -56,7 +56,9 @@
 		></iframe>
 	{:else}
 		<img
-			src={preview}
+			src={preview(800)}
+			srcset="{preview(480)} 480w, {preview(800)} 800w"
+			sizes="(min-width: 64rem) 50rem, 100vw"
 			alt="Preview of the {title.toLowerCase()} for {city.name}"
 			width="800"
 			height="500"

@@ -56,7 +56,10 @@
 					{#each sources as s (s.name)}
 						<tr>
 							<th scope="row"><a href={s.url} rel="external">{s.name}</a></th>
-							<td>{s.provider}</td>
+							<td>
+								{s.provider}
+								{#if s.credit}<span class="credit">{s.credit}</span>{/if}
+							</td>
 							<td>{s.usedFor}</td>
 							<td><a href={s.licenceUrl} rel="external license">{s.licence}</a></td>
 							<td>{s.updated}</td>
@@ -324,6 +327,13 @@
 	}
 	dd strong {
 		color: var(--ink);
+	}
+	.credit {
+		display: block;
+		margin-top: var(--s1);
+		color: var(--ink-3);
+		font-size: 0.75rem;
+		font-style: italic;
 	}
 	.small {
 		color: var(--ink-3);

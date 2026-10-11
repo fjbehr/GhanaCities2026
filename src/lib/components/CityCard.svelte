@@ -2,27 +2,36 @@
 	import CloudRain from '@lucide/svelte/icons/cloud-rain';
 	import ThermometerSun from '@lucide/svelte/icons/thermometer-sun';
 	import Wind from '@lucide/svelte/icons/wind';
-	import { photos, photoSrc } from '#lib/config/photos.ts';
+	import { photoSources } from '#lib/assets/photo-urls.ts';
+	import { photos } from '#lib/config/photos.ts';
 	import { degrees, num } from '#lib/format.ts';
 	import type { Snapshot } from '#lib/server/live.ts';
 	import LevelBadge from './LevelBadge.svelte';
 
 	let { city, eager = false }: { city: Snapshot; eager?: boolean } = $props();
 	const photo = $derived(photos[city.slug]);
+	const src = $derived(photoSources(city.slug));
 </script>
 
 <article class="card">
 	<figure>
-		<img
-			src={photoSrc(city.slug, 400)}
-			srcset="{photoSrc(city.slug, 400)} 400w, {photoSrc(city.slug, 800)} 800w"
-			sizes="(min-width: 60rem) 24rem, (min-width: 40rem) 50vw, 100vw"
-			alt={photo.alt}
-			width="400"
-			height={Math.round(400 / photo.ratio)}
-			loading={eager ? 'eager' : 'lazy'}
-			decoding="async"
-		/>
+		<picture>
+			<!-- Phones show a 6.5rem thumbnail; wider screens a card-wide photo -->
+			<source
+				type="image/webp"
+				srcset={src.webp}
+				sizes="(max-width: 39.99rem) 6.5rem, (min-width: 80rem) 15rem, (min-width: 60rem) 24rem, 50vw"
+			/>
+			<img
+				src={src.fallback}
+				alt={photo.alt}
+				width="400"
+				height={Math.round(400 / photo.ratio)}
+				loading={eager ? 'eager' : 'lazy'}
+				decoding="async"
+				fetchpriority={eager ? 'high' : undefined}
+			/>
+		</picture>
 		<figcaption>
 			Photo: <a href={photo.source} rel="external">{photo.author}</a>,
 			<a href={photo.licenseUrl} rel="external license">{photo.license}</a>
@@ -80,6 +89,9 @@
 		position: relative;
 		aspect-ratio: 3 / 2;
 		background: var(--surface-sunk);
+	}
+	picture {
+		display: contents;
 	}
 	img {
 		width: 100%;

@@ -135,8 +135,15 @@
 		font-weight: 650;
 		font-size: var(--step--1);
 		cursor: pointer;
+		position: relative;
+	}
+	/* Invisible 44 px touch target around the compact pill */
+	button::before {
+		content: '';
+		position: absolute;
+		inset: -0.5rem -0.25rem;
 	}
 	button:hover {
-		background: #dbe7ff;
+		background: var(--accent-wash-hover);
 	}
 </style>

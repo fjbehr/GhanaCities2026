@@ -79,10 +79,10 @@
 		background: var(--calm);
 	}
 	.watch .bar {
-		background: #ca8a04;
+		background: var(--watch-mark);
 	}
 	.act .bar {
-		background: #ea580c;
+		background: var(--act-mark);
 	}
 	.severe .bar {
 		background: var(--severe);

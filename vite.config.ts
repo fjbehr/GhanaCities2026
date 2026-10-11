@@ -17,7 +17,9 @@ export default defineConfig(({ mode }) => {
 						filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 				},
 				adapter: adapter(),
-				paths: { origin }
+				paths: { origin },
+				// All page CSS together is ~29 KB (~7 KB gzipped): inline it to save render-blocking requests
+				inlineStyleThreshold: 16_000
 			})
 		],
 		// Same port in dev and production (adapter-node defaults to 3000)

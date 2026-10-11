@@ -1,4 +1,4 @@
-/** City photos from Wikimedia Commons (self-hosted under static/img/cities) */
+/** City photos from Wikimedia Commons; originals in photos/, served variants in src/lib/assets/cities */
 export interface Photo {
 	alt: string;
 	author: string;
@@ -53,5 +53,3 @@ export const photos: Record<string, Photo> = {
 		ratio: 800 / 533
 	}
 };
-
-export const photoSrc = (slug: string, width: 400 | 800) => `/img/cities/${slug}-${width}.jpg`;
