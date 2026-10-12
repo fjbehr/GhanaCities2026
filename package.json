@@ -29,6 +29,7 @@
 		"portal": "tsx portal-config/build.ts",
 		"photos": "tsx scripts/build-photos.ts",
 		"deploy:export": "tsx deploy/export-data.ts",
+		"field-map": "tsx field-map/build.ts",
 		"pipeline:heat": "tsx pipeline/04b-heat.ts"
 	},
 	"devDependencies": {

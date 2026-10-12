@@ -1,0 +1,8 @@
+[
+	{
+		"id": "photon",
+		"name": "Place search (Komoot Photon, OpenStreetMap data)",
+		"url": "https://photon.komoot.io/api/?",
+		"typ": "WFS"
+	}
+]

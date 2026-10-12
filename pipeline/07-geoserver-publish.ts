@@ -261,6 +261,20 @@ await featureType(
 );
 await setStyles('district_boundaries', 'district_outline');
 await featureType(
+	'districts_ghana',
+	'gs_district_all',
+	'Districts of Ghana (MMDAs)',
+	'geoBoundaries ADM2 (CC BY 4.0), all districts of Ghana (status 2019), with name, region and area.'
+);
+await setStyles('districts_ghana', 'district_outline');
+await featureType(
+	'regions',
+	'gs_region',
+	'Regions of Ghana',
+	'geoBoundaries ADM1 (CC BY 4.0), the regions of Ghana (status 2019).'
+);
+await setStyles('regions', 'region_outline');
+await featureType(
 	'study_area',
 	'gs_study_area',
 	'Study areas',

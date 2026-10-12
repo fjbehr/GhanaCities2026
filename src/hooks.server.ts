@@ -5,14 +5,16 @@ import { geoServerAccess } from '#lib/server/geoserver-access.ts';
 import { proxy, resolveTarget, type ProxyRoute } from '#lib/server/proxy.ts';
 
 // Same-origin access to the OGC services and vector tiles, so Masterportal
-// and the site need no CORS configuration.
+// and the site need no CORS configuration. GeoServer's public responses also carry a
+// CORS header, so independent map clients on other sites can use them (e.g. field-map/).
 const proxyRoutes: ProxyRoute[] = [
 	// Read-only map services; the admin interface only with GEOSERVER_ADMIN=true, REST never
 	{
 		name: 'GeoServer',
 		prefix: '/geoserver',
 		target: GEOSERVER_URL,
-		allow: geoServerAccess(GEOSERVER_ADMIN)
+		allow: geoServerAccess(GEOSERVER_ADMIN),
+		cors: true
 	},
 	{
 		name: 'The basemap tile server',

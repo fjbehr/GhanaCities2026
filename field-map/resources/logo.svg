@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ghana Field Map">
+	<rect width="64" height="64" rx="14" fill="#166534"/>
+	<path d="M10 46c8-6 14-8 22-8s14 2 22 8v8H10z" fill="#a3e635"/>
+	<path d="M10 52c8-4 14-5 22-5s14 1 22 5v2H10z" fill="#65a30d"/>
+	<path d="M32 10c-7 0-12 5-12 11.5C20 30 32 40 32 40s12-10 12-18.5C44 15 39 10 32 10z" fill="#fff"/>
+	<circle cx="32" cy="21.5" r="4.5" fill="#166534"/>
+</svg>

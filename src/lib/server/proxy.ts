@@ -13,6 +13,8 @@ export interface ProxyRoute {
 	target: string;
 	/** Which requests may pass; `path` is the part after `prefix`. Default: all */
 	allow?: (method: string, path: string, search: URLSearchParams) => boolean;
+	/** Let web pages on other sites read the responses (public, read-only data only) */
+	cors?: boolean;
 }
 
 // Hop-by-hop headers (RFC 9110 §7.6.1) plus `host`, which must match the upstream
@@ -93,6 +95,7 @@ export function proxy(
 					);
 				}
 			}
+			if (route.cors) responseHeaders.set('access-control-allow-origin', '*');
 
 			const status = res.statusCode ?? 502;
 			const hasBody = request.method !== 'HEAD' && status !== 204 && status !== 304;

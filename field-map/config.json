@@ -1,0 +1,328 @@
+{
+	"portalConfig": {
+		"map": {
+			"controls": {
+				"zoom": true,
+				"orientation": {
+					"zoomMode": "once"
+				},
+				"fullScreen": true
+			},
+			"mapView": {
+				"epsg": "EPSG:3857",
+				"startCenter": [-116885, 882224],
+				"extent": [-2894307, -4579426, 7124447, 4865942],
+				"startZoomLevel": 4,
+				"options": [
+					{
+						"resolution": 19567.879241,
+						"scale": 73957340,
+						"zoomLevel": 0
+					},
+					{
+						"resolution": 9783.939621,
+						"scale": 36978670,
+						"zoomLevel": 1
+					},
+					{
+						"resolution": 4891.96981,
+						"scale": 18489335,
+						"zoomLevel": 2
+					},
+					{
+						"resolution": 2445.984905,
+						"scale": 9244667,
+						"zoomLevel": 3
+					},
+					{
+						"resolution": 1222.992453,
+						"scale": 4622334,
+						"zoomLevel": 4
+					},
+					{
+						"resolution": 611.496226,
+						"scale": 2311167,
+						"zoomLevel": 5
+					},
+					{
+						"resolution": 305.748113,
+						"scale": 1155583,
+						"zoomLevel": 6
+					},
+					{
+						"resolution": 152.874057,
+						"scale": 577792,
+						"zoomLevel": 7
+					},
+					{
+						"resolution": 76.437028,
+						"scale": 288896,
+						"zoomLevel": 8
+					},
+					{
+						"resolution": 38.218514,
+						"scale": 144448,
+						"zoomLevel": 9
+					},
+					{
+						"resolution": 19.109257,
+						"scale": 72224,
+						"zoomLevel": 10
+					},
+					{
+						"resolution": 9.554629,
+						"scale": 36112,
+						"zoomLevel": 11
+					},
+					{
+						"resolution": 4.777314,
+						"scale": 18056,
+						"zoomLevel": 12
+					},
+					{
+						"resolution": 2.388657,
+						"scale": 9028,
+						"zoomLevel": 13
+					},
+					{
+						"resolution": 1.194329,
+						"scale": 4514,
+						"zoomLevel": 14
+					},
+					{
+						"resolution": 0.597164,
+						"scale": 2257,
+						"zoomLevel": 15
+					},
+					{
+						"resolution": 0.298582,
+						"scale": 1128,
+						"zoomLevel": 16
+					}
+				]
+			}
+		},
+		"mainMenu": {
+			"expanded": false,
+			"title": {
+				"text": "Ghana Field Map",
+				"logo": "./resources/logo.svg",
+				"toolTip": "Ghana Field Map"
+			},
+			"searchBar": {
+				"searchInterfaces": [
+					{
+						"type": "komootPhoton",
+						"serviceId": "photon",
+						"minChars": 3,
+						"limit": 8,
+						"lang": "en",
+						"lat": 7.9,
+						"lon": -1.05,
+						"bbox": "-3.3,4.6,1.3,11.2"
+					},
+					{
+						"type": "topicTree",
+						"hitTemplate": "layer"
+					}
+				]
+			},
+			"sections": [
+				[
+					{
+						"type": "about",
+						"name": "Help: how to use this map",
+						"title": "Ghana Field Map",
+						"logo": "./resources/logo.svg",
+						"logoLink": "",
+						"logoText": "Ghana Field Map",
+						"version": false,
+						"hideImprintInFooter": true,
+						"abstractText": "<p><b>Find your place.</b> Tap the round target button (bottom right) to go to where you are, or type the name of your village or town in the search box.</p><p><b>Choose what to see.</b> Open the menu (☰, top left), tap <i>Add layer</i>, choose a folder and tick a map: rain, green plants, wet soil, fires, soil quality, clinics, schools, markets or water points. Under <i>Baselayers</i> you can switch between street map, relief map and satellite photo. Tap a place on the map to see its value or name.</p><p><b>Measure your field.</b> Open the tools (🔧, top right) and choose <i>Measure</i>, choose <i>Area</i> and tap the corners of your field; tap the first corner again to finish. The result is in hectares (ha). <b>1 ha = 2.47 acres</b>; 1 acre = 0.405 ha.</p><p><b>Coordinates.</b> In the tools (🔧), <i>Coordinates</i> shows the position of a point in GPS coordinates, the Ghana National Grid, UTM and other systems used in Africa.</p><h4>How to read the maps</h4><p><b>Rain</b> – satellite estimate of rain on the latest day; darker colours mean more rain. It covers large areas and can miss a single shower.</p><p><b>How green the plants are</b> (vegetation index) – dark green means many healthy plants, yellow and brown mean few or dry plants. Compare your area with last weeks to see if crops are stressed.</p><p><b>How wet the soil is</b> – computer model of the water in the soil around the roots; good for seeing dry spells over a district, not for a single field.</p><p><b>Fires</b> – fires and hot spots seen by a satellite on the latest day.</p><p><b>Soil maps</b> (SoilGrids, top 5 cm, about 250 m squares) – estimates from a computer model, not a soil test. <i>Acidity</i>: the number is pH × 10, so 55 means pH 5.5. Most crops grow well between pH 6.0 and 7.0 (60–70); below 5.5 (55) the soil is acid. <i>Organic carbon</i> and <i>nitrogen</i>: higher values usually mean more fertile soil. <i>Clay</i>: high values mean heavy soil that holds water; low values mean sandy soil that dries out fast. Ask your agricultural extension officer before you change fertiliser or lime.</p><p><b>Clinics, schools, markets, water points</b> – from OpenStreetMap, a map made by volunteers. Some places are missing, especially water points.</p><p><b>Maps only around the five big cities</b> (Accra, Kumasi, Tamale, Sekondi-Takoradi, Cape Coast) – where rainwater collects, places often under water, land cover, buildings over time, hot and cool places and where people live.</p><h4>Sources</h4><p>Map: © OpenStreetMap contributors (ODbL), map service by terrestris. Satellite photo: Sentinel-2 cloudless 2024 by EOX IT Services GmbH (CC BY-NC-SA 4.0). Rain, plants, soil moisture and fires: NASA EOSDIS GIBS (IMERG, MODIS, SMAP, VIIRS). Soil: ISRIC SoilGrids (CC BY 4.0). Clinics, schools, markets, water points, borders and city maps: Ghana Cities (OpenStreetMap, geoBoundaries, WorldPop, Copernicus, ESA WorldCover, JRC, USGS Landsat). This map is not an official warning service. For weather warnings follow the Ghana Meteorological Agency (GMet).</p>"
+					},
+					{
+						"type": "shareView",
+						"name": "Share this map"
+					}
+				]
+			]
+		},
+		"secondaryMenu": {
+			"expanded": false,
+			"sections": [
+				[
+					{
+						"type": "legend",
+						"name": "What the colours mean"
+					},
+					{
+						"type": "measure",
+						"name": "Measure",
+						"lineStringUnits": ["m", "km"],
+						"polygonUnits": ["ha", "m²", "km²"]
+					},
+					{
+						"type": "coordToolkit",
+						"name": "Coordinates",
+						"zoomLevel": 12
+					}
+				]
+			]
+		},
+		"tree": {
+			"singleBaselayer": true,
+			"addLayerButton": {
+				"active": true
+			}
+		},
+		"portalFooter": {
+			"scaleLine": true,
+			"urls": [
+				{
+					"bezeichnung": "© ",
+					"url": "https://www.openstreetmap.org/copyright",
+					"alias": "OpenStreetMap contributors, terrestris",
+					"alias_mobile": "OpenStreetMap"
+				},
+				{
+					"bezeichnung": "Data: ",
+					"url": "https://github.com/fjbehr/GhanaCities2026/blob/main/field-map/README.md#sources-and-licences",
+					"alias": "NASA GIBS, ISRIC SoilGrids, EOX Sentinel-2 cloudless (CC BY-NC-SA), Ghana Cities",
+					"alias_mobile": "Sources"
+				}
+			]
+		}
+	},
+	"layerConfig": {
+		"baselayer": {
+			"elements": [
+				{
+					"id": "osm",
+					"visibility": true
+				},
+				{
+					"id": "topo",
+					"visibility": false
+				},
+				{
+					"id": "satellite",
+					"visibility": false
+				}
+			]
+		},
+		"subjectlayer": {
+			"elements": [
+				{
+					"name": "Rain, plants, fire",
+					"type": "folder",
+					"elements": [
+						{
+							"id": "rain",
+							"visibility": false
+						},
+						{
+							"id": "vegetation",
+							"visibility": false
+						},
+						{
+							"id": "soil_moisture",
+							"visibility": false
+						},
+						{
+							"id": "fires",
+							"visibility": false
+						}
+					]
+				},
+				{
+					"name": "Soil (top 5 cm)",
+					"type": "folder",
+					"elements": [
+						{
+							"id": "soil_ph",
+							"visibility": false
+						},
+						{
+							"id": "soil_carbon",
+							"visibility": false
+						},
+						{
+							"id": "soil_nitrogen",
+							"visibility": false
+						},
+						{
+							"id": "soil_clay",
+							"visibility": false
+						}
+					]
+				},
+				{
+					"name": "Clinics, schools, markets, water",
+					"type": "folder",
+					"elements": [
+						{
+							"id": "health",
+							"visibility": false
+						},
+						{
+							"id": "schools",
+							"visibility": false
+						},
+						{
+							"id": "markets",
+							"visibility": false
+						},
+						{
+							"id": "water_points",
+							"visibility": false
+						}
+					]
+				},
+				{
+					"name": "Borders",
+					"type": "folder",
+					"elements": [
+						{
+							"id": "regions",
+							"visibility": true
+						},
+						{
+							"id": "districts",
+							"visibility": false
+						}
+					]
+				},
+				{
+					"name": "Only around the 5 big cities",
+					"type": "folder",
+					"elements": [
+						{
+							"id": "low_lying",
+							"visibility": false
+						},
+						{
+							"id": "surface_water",
+							"visibility": false
+						},
+						{
+							"id": "land_cover",
+							"visibility": false
+						},
+						{
+							"id": "built_up",
+							"visibility": false
+						},
+						{
+							"id": "heat",
+							"visibility": false
+						},
+						{
+							"id": "population",
+							"visibility": false
+						}
+					]
+				}
+			]
+		}
+	}
+}

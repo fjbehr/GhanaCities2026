@@ -133,6 +133,15 @@ describe('proxy', () => {
 		expect(res.headers.get('location')).toBe('http://localhost:3000/up/web/');
 	});
 
+	it('adds a CORS header only for routes that allow it', async () => {
+		const plain = await forward(new Request('http://localhost:3000/up/wms'));
+		expect(plain.headers.get('access-control-allow-origin')).toBeNull();
+		const open = { ...route, cors: true };
+		const target = resolveTarget(new URL('http://localhost:3000/up/wms'), open)!;
+		const res = await proxy(new Request('http://localhost:3000/up/wms'), target, open, options);
+		expect(res.headers.get('access-control-allow-origin')).toBe('*');
+	});
+
 	it('answers 502 when the upstream is down', async () => {
 		const down: ProxyRoute = { name: 'GeoServer', prefix: '/up', target: 'http://127.0.0.1:1' };
 		const res = await proxy(

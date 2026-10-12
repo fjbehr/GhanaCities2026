@@ -13,6 +13,8 @@ import { basemapStyle } from './basemap.ts';
 import { portalConfig, vectorStyles } from './config.ts';
 
 const VERSION = '3.27.1';
+// Windows' own bsdtar unpacks zip archives; a GNU tar earlier in PATH (Git Bash) cannot
+const WINDOWS_TAR = path.join(process.env.SystemRoot ?? 'C:/Windows', 'System32', 'tar.exe');
 const MASTERCODE = VERSION.replaceAll('.', '_');
 const SRC = path.join(ROOT, 'portal-config');
 const OUT = path.join(ROOT, 'static', 'portal');
@@ -30,7 +32,9 @@ async function mastercode() {
 	// Windows ships bsdtar, which unpacks zip archives; GNU tar on Linux does not, so use unzip
 	const res =
 		process.platform === 'win32'
-			? spawnSync('tar', ['-xf', zip, '-C', OUT, `mastercode/${MASTERCODE}`], { stdio: 'inherit' })
+			? spawnSync(WINDOWS_TAR, ['-xf', zip, '-C', OUT, `mastercode/${MASTERCODE}`], {
+					stdio: 'inherit'
+				})
 			: spawnSync('unzip', ['-q', '-o', zip, `mastercode/${MASTERCODE}/*`, '-d', OUT], {
 					stdio: 'inherit'
 				});

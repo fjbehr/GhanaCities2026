@@ -29,6 +29,9 @@ Thumbs.db
 .claude/settings.local.json
 *.log
 
+# built field map (npm run field-map)
+field-map/dist/
+
 # server data bundle (npm run deploy:export)
 deploy/out/
 
