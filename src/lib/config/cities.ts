@@ -58,6 +58,14 @@ export const cities = [
 		center: [-1.246, 5.106],
 		bbox: [-1.35, 5.08, -1.18, 5.17]
 	}
+	,
+	{
+		slug: 'wa',
+		name: 'Wa',
+		region: 'Central',
+		center: [-2.246, 5.106],
+		bbox: [-2.35, 5.08, -1.18, 5.17]
+	}
 ] as const satisfies readonly City[];
 
 export type CitySlug = (typeof cities)[number]['slug'];

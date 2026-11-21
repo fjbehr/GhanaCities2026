@@ -6,7 +6,7 @@ import { num, pct, people, signedDegrees } from './format.ts';
 
 export const site = {
 	name: 'Ghana Cities',
-	tagline: 'Rain, heat, air and services in five Ghanaian cities',
+	tagline: 'Rain, heat, air and services in six Ghanaian cities',
 	intro:
 		'Live conditions in plain words, and open figures for every district — built from free data such as OpenStreetMap, NASA, Copernicus and WorldPop.',
 	notOfficial:

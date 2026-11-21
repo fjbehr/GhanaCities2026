@@ -52,4 +52,14 @@ export const photos: Record<string, Photo> = {
 			'https://commons.wikimedia.org/wiki/File:View_over_Town_from_Fort_Victoria_-_Cape_Coast_-_Ghana_(4737799143).jpg',
 		ratio: 800 / 533
 	}
+	,
+	'wa': {
+		alt: 'Rooftops of Cape Coast seen from Fort Victoria, with the sea behind',
+		author: 'Adam Jones',
+		license: 'CC BY-SA 2.0',
+		licenseUrl: 'https://creativecommons.org/licenses/by-sa/2.0',
+		source:
+			'https://commons.wikimedia.org/wiki/File:View_over_Town_from_Fort_Victoria_-_Cape_Coast_-_Ghana_(4737799143).jpg',
+		ratio: 800 / 533
+	}
 };

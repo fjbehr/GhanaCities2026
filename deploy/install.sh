@@ -2,6 +2,11 @@
 # Ghana Cities: one-time server setup for Ubuntu 24.04 (e.g. a Strato Linux VPS).
 #
 #   sudo bash install.sh --domain example.org --email you@example.org
+#   sudo bash install.sh --ip 203.0.113.10 --source /tmp/ghana-cities-code.tar.gz
+#
+# --ip      the server has no domain: the site is served over plain HTTP at http://<ip>
+#           (Let's Encrypt certificates need a domain). Switch to --domain later for HTTPS.
+# --source  take the code from a tarball (deploy/pack-code.ps1) instead of cloning from GitHub.
 #
 # Installs and configures: firewall, swap, Node.js, PostgreSQL + PostGIS, Java + GeoServer,
 # pmtiles, Caddy (HTTPS), the app as systemd services and a daily database backup.
@@ -29,10 +34,14 @@ SWAP_SIZE="2G"
 
 DOMAIN=""
 EMAIL=""
+IP=""
+SOURCE=""
 while [ $# -gt 0 ]; do
 	case "$1" in
 		--domain) DOMAIN="$2"; shift 2 ;;
 		--email) EMAIL="$2"; shift 2 ;;
+		--ip) IP="$2"; shift 2 ;;
+		--source) SOURCE="$2"; shift 2 ;;
 		--repo) REPO_URL="$2"; shift 2 ;;
 		--branch) BRANCH="$2"; shift 2 ;;
 		*) echo "Unknown option: $1"; exit 2 ;;
@@ -43,8 +52,21 @@ step() { printf '\n\033[1;34m==> %s\033[0m\n' "$*"; }
 fail() { printf '\033[1;31mError: %s\033[0m\n' "$*" >&2; exit 1; }
 
 [ "$(id -u)" -eq 0 ] || fail "run as root: sudo bash install.sh --domain … --email …"
-[ -n "$DOMAIN" ] || fail "--domain is required (the address the site will have, e.g. ghana-cities.example.org)"
-[ -n "$EMAIL" ] || fail "--email is required (Let's Encrypt uses it for certificate notices)"
+if [ -n "$IP" ]; then
+	[ -z "$DOMAIN" ] || fail "give either --domain or --ip, not both"
+	[[ "$IP" =~ ^[0-9]{1,3}(\.[0-9]{1,3}){3}$ ]] || fail "--ip expects an IPv4 address such as 203.0.113.10"
+	HOSTNAME_PUBLIC="$IP"
+	PUBLIC_URL="http://$IP"
+else
+	[ -n "$DOMAIN" ] || fail "--domain (or --ip for a server without a domain) is required"
+	[ -n "$EMAIL" ] || fail "--email is required with --domain (Let's Encrypt uses it for certificate notices)"
+	HOSTNAME_PUBLIC="$DOMAIN"
+	PUBLIC_URL="https://$DOMAIN"
+fi
+if [ -n "$SOURCE" ]; then
+	[ -f "$SOURCE" ] || fail "code tarball not found: $SOURCE"
+	SOURCE=$(readlink -f "$SOURCE")
+fi
 . /etc/os-release
 [ "${ID:-}" = "ubuntu" ] || fail "this script is written for Ubuntu (found: ${PRETTY_NAME:-unknown})"
 [ "$(uname -m)" = "x86_64" ] || fail "this script expects an x86_64 server"
@@ -85,20 +107,37 @@ if ! command -v node >/dev/null || [ "$(node -p 'process.versions.node.split("."
 	apt-get install -y -q nodejs
 fi
 
-step "PostgreSQL $PG_MAJOR with PostGIS"
-if [ ! -f /etc/apt/sources.list.d/pgdg.sources ] && [ ! -f /etc/apt/sources.list.d/pgdg.list ]; then
-	/usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
+step "PostgreSQL with PostGIS"
+# A PostgreSQL that already runs on port 5432 (e.g. with data loaded by hand) is used as it is;
+# only when there is none, PostgreSQL $PG_MAJOR is installed and tuned for a small server.
+EXISTING_PG=""
+if command -v pg_lsclusters >/dev/null; then
+	EXISTING_PG=$(pg_lsclusters -h 2>/dev/null | awk '$3 == 5432 { print $1; exit }')
 fi
-apt-get install -y -q "postgresql-$PG_MAJOR" "postgresql-$PG_MAJOR-postgis-3"
-# Modest memory settings for a 2 GB server
-cat > "/etc/postgresql/$PG_MAJOR/main/conf.d/ghana-cities.conf" <<EOF
+add_pgdg() {
+	if [ ! -f /etc/apt/sources.list.d/pgdg.sources ] && [ ! -f /etc/apt/sources.list.d/pgdg.list ]; then
+		/usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
+	fi
+}
+if [ -n "$EXISTING_PG" ]; then
+	PG_MAJOR="$EXISTING_PG"
+	echo "Using the PostgreSQL $PG_MAJOR that already runs on port 5432 (its settings stay unchanged)"
+	if ! dpkg -s "postgresql-$PG_MAJOR-postgis-3" >/dev/null 2>&1; then
+		apt-get install -y -q "postgresql-$PG_MAJOR-postgis-3" || { add_pgdg; apt-get install -y -q "postgresql-$PG_MAJOR-postgis-3"; }
+	fi
+else
+	add_pgdg
+	apt-get install -y -q "postgresql-$PG_MAJOR" "postgresql-$PG_MAJOR-postgis-3"
+	# Modest memory settings for a 2 GB server
+	cat > "/etc/postgresql/$PG_MAJOR/main/conf.d/ghana-cities.conf" <<EOF
 shared_buffers = 192MB
 effective_cache_size = 512MB
 work_mem = 8MB
 maintenance_work_mem = 64MB
 max_connections = 40
 EOF
-systemctl restart postgresql
+	systemctl restart postgresql
+fi
 
 step "Caddy (web server with automatic HTTPS)"
 if ! command -v caddy >/dev/null; then
@@ -123,7 +162,12 @@ fi
 # ---------------------------------------------------------------------------- 3. app user and code
 step "App user '$APP_USER' and code in $APP_DIR"
 id "$APP_USER" >/dev/null 2>&1 || useradd --system --no-create-home --home-dir "$APP_DIR" --shell /bin/bash "$APP_USER"
-if [ ! -d "$APP_DIR/.git" ]; then
+if [ -n "$SOURCE" ]; then
+	# Code from an uploaded tarball; .env, data/ and node_modules/ in APP_DIR are kept
+	mkdir -p "$APP_DIR"
+	tar -xzf "$SOURCE" -C "$APP_DIR"
+	chown -R "$APP_USER:$APP_USER" "$APP_DIR"
+elif [ ! -d "$APP_DIR/.git" ]; then
 	git clone --branch "$BRANCH" "$REPO_URL" "$APP_DIR"
 	chown -R "$APP_USER:$APP_USER" "$APP_DIR"
 else
@@ -142,7 +186,7 @@ DATABASE_URL=postgres://$DB_USER:$DB_PASSWORD@localhost:5432/$DB_NAME
 GEOSERVER_URL=http://localhost:8081/geoserver
 GEOSERVER_USER=admin
 GEOSERVER_PASSWORD=$GEOSERVER_PASSWORD
-# true: GeoServer admin (with login) at https://$DOMAIN/geoserver/web/
+# true: GeoServer admin (with login) at $PUBLIC_URL/geoserver/web/ (only switch on with HTTPS)
 GEOSERVER_ADMIN=false
 
 BASEMAP_URL=http://localhost:8082
@@ -151,7 +195,7 @@ BASEMAP_URL=http://localhost:8082
 FIRMS_MAP_KEY=
 
 # Public address; read when building. Rebuild after changing it (deploy/update.sh).
-ORIGIN=https://$DOMAIN
+ORIGIN=$PUBLIC_URL
 
 # The site listens on this machine only; Caddy forwards from HTTPS
 HOST=127.0.0.1
@@ -163,6 +207,11 @@ EOF
 	chmod 600 "$ENV_FILE"
 fi
 env_value() { grep -E "^$1=" "$ENV_FILE" | head -1 | cut -d= -f2-; }
+# Keep ORIGIN in step with --domain/--ip when the script runs again (e.g. switching IP → domain)
+if [ "$(env_value ORIGIN)" != "$PUBLIC_URL" ]; then
+	sed -i -E "s#^ORIGIN=.*#ORIGIN=$PUBLIC_URL#" "$ENV_FILE"
+	echo "ORIGIN set to $PUBLIC_URL"
+fi
 DB_PASSWORD=$(env_value DATABASE_URL | sed -E 's#^postgres://[^:]+:([^@]+)@.*#\1#')
 
 # ---------------------------------------------------------------------------- 4. database
@@ -233,7 +282,7 @@ After=network.target
 
 [Service]
 User=$APP_USER
-ExecStart=/usr/local/bin/pmtiles serve $APP_DIR/data/derived/basemap --port=8082 --interface=127.0.0.1 --public-url=https://$DOMAIN/basemap
+ExecStart=/usr/local/bin/pmtiles serve $APP_DIR/data/derived/basemap --port=8082 --interface=127.0.0.1 --public-url=$PUBLIC_URL/basemap
 Restart=on-failure
 
 [Install]
@@ -257,17 +306,46 @@ RestartSec=3
 WantedBy=multi-user.target
 EOF
 
-step "Caddy: HTTPS for $DOMAIN"
-cat > /etc/caddy/Caddyfile <<EOF
+# Extra routes (e.g. /apps/* to an Apache on 127.0.0.1:8080) go into /etc/caddy/sites.d/*.caddy;
+# this script never touches that folder, so they survive a re-run.
+mkdir -p /etc/caddy/sites.d
+[ -e /etc/caddy/sites.d/README.caddy ] || cat > /etc/caddy/sites.d/README.caddy <<'EOF'
+# Extra routes for the Ghana Cities site, imported by /etc/caddy/Caddyfile. Example:
+#
+#   handle /apps/* {
+#   	reverse_proxy 127.0.0.1:8080
+#   }
+#
+# Everything without its own handle block goes to the Ghana Cities website.
+# Check with: caddy validate --config /etc/caddy/Caddyfile, then: systemctl reload caddy
+EOF
+SITE_BODY='	import /etc/caddy/sites.d/*.caddy
+
+	handle {
+		reverse_proxy 127.0.0.1:3000
+	}'
+if [ -n "$IP" ]; then
+	step "Caddy: plain HTTP on port 80 (no domain, so no certificate)"
+	cat > /etc/caddy/Caddyfile <<EOF
+:80 {
+$SITE_BODY
+}
+EOF
+else
+	step "Caddy: HTTPS for $DOMAIN"
+	cat > /etc/caddy/Caddyfile <<EOF
 {
 	email $EMAIL
 }
 
 $DOMAIN {
-	reverse_proxy 127.0.0.1:3000
+$SITE_BODY
 	header Strict-Transport-Security "max-age=31536000"
 }
 EOF
+fi
+caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile >/dev/null \
+	|| fail "the Caddy configuration is invalid (caddy validate --config /etc/caddy/Caddyfile)"
 
 step "Daily database backup (kept 14 days in $BACKUP_DIR)"
 mkdir -p "$BACKUP_DIR"
@@ -306,6 +384,9 @@ as_app "npm ci --no-audit --no-fund"
 as_app "npm run portal"
 as_app "npm run build"
 
+if ss -ltnpH 'sport = :80' | grep -vq caddy; then
+	fail "port 80 is used by another program: $(ss -ltnpH 'sport = :80' | grep -o 'users:(("[^"]*' | cut -d'"' -f2 | sort -u | tr '\n' ' ')- move it (e.g. Apache to 127.0.0.1:8080, see deploy/README.md) and run this script again"
+fi
 step "Starting services"
 systemctl daemon-reload
 systemctl enable --now postgresql geoserver pmtiles ghana-cities ghana-cities-backup.timer
@@ -314,9 +395,9 @@ systemctl restart caddy
 step "Done"
 cat <<EOF
 
-The server is set up. The site has no data yet. Next steps (see deploy/README.md):
+The server is set up at $PUBLIC_URL. The site has no data yet. Next steps (see deploy/README.md):
   1. On your PC:     npm run deploy:export
-  2. Copy the file:  scp deploy/out/ghana-cities-data.tar.gz <user>@$DOMAIN:/tmp/
+  2. Copy the file:  scp deploy/out/ghana-cities-data.tar.gz <user>@$HOSTNAME_PUBLIC:/tmp/
   3. On the server:  sudo bash $APP_DIR/deploy/import-data.sh /tmp/ghana-cities-data.tar.gz
 
 Passwords are in $ENV_FILE (readable by root and $APP_USER only).
